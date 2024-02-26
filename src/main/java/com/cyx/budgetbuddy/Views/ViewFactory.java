@@ -19,7 +19,6 @@ public class ViewFactory {
 
     public static void showSignInScene () {
         // Loading the new sign-in fxml file into a new scene and showing it.
-        System.out.println("Showing Sign In Scene");
         Parent root = null;
         try {
             root = FXMLLoader.load(ViewFactory.class.getResource("/Fxml/Views/sign-in.fxml"));
