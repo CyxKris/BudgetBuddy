@@ -6,8 +6,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
+import java.util.logging.Logger;
 
 public class ViewFactory {
+    private static final Logger logger = Logger.getLogger(ViewFactory.class.getName());
+
 
     private static void setAndShowStage(Parent root) {
         // Method to set a new scene to the mainStage
@@ -21,9 +25,10 @@ public class ViewFactory {
         // Loading the new sign-in fxml file into a new scene and showing it.
         Parent root = null;
         try {
-            root = FXMLLoader.load(ViewFactory.class.getResource("/Fxml/Views/sign-in.fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(ViewFactory.class.getResource("/Fxml/Views/sign-in.fxml")));
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.severe("An error occurred: " + e.getMessage());
+            logger.severe("Stack trace: " + e);
         }
         setAndShowStage(root);
     }
@@ -32,9 +37,10 @@ public class ViewFactory {
         // Loading the new login fxml file into a new scene and showing it.
         Parent root = null;
         try {
-            root = FXMLLoader.load(ViewFactory.class.getResource("/Fxml/Views/login.fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(ViewFactory.class.getResource("/Fxml/Views/login.fxml")));
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.severe("An error occurred: " + e.getMessage());
+            logger.severe("Stack trace: " + e);
         }
         setAndShowStage(root);
     }

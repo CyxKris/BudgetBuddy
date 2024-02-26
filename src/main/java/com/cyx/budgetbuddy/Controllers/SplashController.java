@@ -1,6 +1,7 @@
 package com.cyx.budgetbuddy.Controllers;
 
 import com.cyx.budgetbuddy.Views.MainStage;
+import com.cyx.budgetbuddy.Views.ViewFactory;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,11 +12,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class SplashController implements Initializable {
+    private static final Logger logger = Logger.getLogger(ViewFactory.class.getName());
+
 
     // Annotating the rootPane field with @FXML to enable FXML injection
     @FXML
@@ -42,9 +45,10 @@ public class SplashController implements Initializable {
                         // Loading the new login fxml file into a new stage and showing it.
                         Parent root = null;
                         try {
-                            root = FXMLLoader.load(getClass().getResource("/Fxml/Views/login.fxml"));
+                            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/Views/login.fxml")));
                         } catch (IOException e) {
-                            Logger.getLogger(SplashController.class.getName()).log(Level.SEVERE, null, e);
+                            logger.severe("An error occurred: " + e.getMessage());
+                            logger.severe("Stack trace: " + e);
                         }
                         Stage stage = MainStage.getInstance();
                         Scene scene = new Scene(root);
@@ -65,7 +69,8 @@ public class SplashController implements Initializable {
                 });
             } catch (InterruptedException e) {
                 // Handling any potential InterruptedException that may occur during the thread execution
-                Logger.getLogger(SplashController.class.getName()).log(Level.SEVERE, null, e);
+                logger.severe("An error occurred: " + e.getMessage());
+                logger.severe("Stack trace: " + e);
             }
         }
     }
