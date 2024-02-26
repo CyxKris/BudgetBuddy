@@ -37,13 +37,13 @@
     -fx-opacity: 50%;
 }
 
-.input-fields Label, .input-fields TextField {
+.input-fields Label, .input-fields TextField, .input-fields PasswordField {
     -fx-font-size: 16px;
     -fx-fill: #FFFFFF;
     -fx-text-fill: #FFFFFF;
 }
 
-.input-fields TextField {
+.input-fields TextField, .input-fields PasswordField {
     -fx-background-color: #FFFFFF, #1B1B1B;
     /*-fx-background-color: transparent;*/
     /*-fx-background-insets: 0, 0, 0;*/
@@ -51,7 +51,7 @@
     -fx-font-size: 18px;
 }
 
-.text-field-text {
+.text-field-text, .password-field-text {
     -fx-opacity: 80%;
     -fx-font-family: "urbanist";
     -fx-font-weight: bold;

@@ -1,5 +1,6 @@
 package com.cyx.budgetbuddy.Views;
 
+import com.cyx.budgetbuddy.Models.User;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -38,6 +39,18 @@ public class ViewFactory {
         Parent root = null;
         try {
             root = FXMLLoader.load(Objects.requireNonNull(ViewFactory.class.getResource("/Fxml/Views/login.fxml")));
+        } catch (IOException e) {
+            logger.severe("An error occurred: " + e.getMessage());
+            logger.severe("Stack trace: " + e);
+        }
+        setAndShowStage(root);
+    }
+
+    public static void showAppScene(User user) {
+        // Loading the new app-view fxml file into a new scene and showing it.
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(ViewFactory.class.getResource("/Fxml/Views/app-view.fxml")));
         } catch (IOException e) {
             logger.severe("An error occurred: " + e.getMessage());
             logger.severe("Stack trace: " + e);

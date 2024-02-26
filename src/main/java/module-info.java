@@ -9,6 +9,8 @@ module com.cyx.budgetbuddy {
     requires org.kordamp.ikonli.core;
     // Icon pack modules
     requires org.kordamp.ikonli.boxicons;
+    // Gluon Icons
+//    requires com.gluonhq.charm.glisten.controls;
 
     opens com.cyx.budgetbuddy to javafx.fxml;
     opens com.cyx.budgetbuddy.Controllers to javafx.fxml;

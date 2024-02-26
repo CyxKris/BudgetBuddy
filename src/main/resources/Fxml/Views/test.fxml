@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.SubScene?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0"
+      prefWidth="1250.0" spacing="10.0" styleClass="root-pane" stylesheets="@../../Css/app.css"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="16.0" left="16.0" right="16.0" top="16.0"/>
+   </padding>
+   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0"
+         prefWidth="200.0"/>
+   <SubScene height="640.0" width="1000.0">
+      <root>
+         <Region/>
+      </root>
+   </SubScene>
+</HBox>

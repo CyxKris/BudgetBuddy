@@ -12,5 +12,5 @@
         <URL value="@../../Css/app.css"/>
         <URL value="@../../Css/view.css"/>
     </stylesheets>
-    <Text layoutX="382.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Transactions View"/>
+    <Text layoutX="406.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Settings View"/>
 </AnchorPane>

@@ -13,9 +13,13 @@
     -fx-font-size: 16px;
 }
 
-.menu-bar .views Hyperlink {
+.menu-bar .views .link {
     -fx-text-fill: #FFFFFF;
     -fx-cursor: hand;
+}
+
+.menu-bar .views .link.selected {
+    -fx-text-fill: #DAFF01;
 }
 
 .menu-bar Button {

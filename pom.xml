@@ -42,6 +42,11 @@
             </exclusions>
         </dependency>
         <dependency>
+            <groupId>com.gluonhq</groupId>
+            <artifactId>charm-glisten</artifactId>
+            <version>6.2.3</version>
+        </dependency>
+        <dependency>
             <groupId>org.kordamp.ikonli</groupId>
             <artifactId>ikonli-javafx</artifactId>
             <version>12.3.1</version>
@@ -74,6 +79,13 @@
             <version>3.45.1.0</version>
         </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>gluon-nexus-repository</id>
+            <url>https://nexus.gluonhq.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
