@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "urbanist";
+    font-weight: 100 1000;
+    font-style: normal;
+    src: url('../fonts/Urbanist-VariableFont.ttf') format('truetype');
+}
+
+/*  Styling the root panel of the scene */
+.root-pane {
+    -fx-font-family: "urbanist";
+    -fx-background-color: #1B1B1B;
+}

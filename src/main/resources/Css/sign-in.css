@@ -1,0 +1,64 @@
+
+
+/* Styling all Text nodes in the root panel */
+.root-pane Text {
+    -fx-font-family: "urbanist";
+    -fx-fill: #FFFFFF;
+}
+/* Styling all Button nodes in the root panel */
+.root-pane Button {
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+/* Styling the Main title of the root panel */
+.root-pane .title-text {
+    -fx-font-weight: bold;
+    -fx-font-size: 32px;
+}
+/* Styling the Main subtitle of the root panel */
+.root-pane .title-label, .root-pane .link {
+    -fx-font-size: 20px;
+    -fx-opacity: 80%;
+}
+.root-pane .link {
+    -fx-text-fill: #DAFF01;
+}
+
+/* Styling the Button nodes in the button panel */
+.button-panel Button {
+    -fx-background-color: #363636;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 18px;
+}
+
+.root-pane Line {
+    -fx-stroke: #DAFF01;
+    -fx-stroke-width: 2;
+    -fx-opacity: 50%;
+}
+
+.input-fields Label, .input-fields TextField {
+    -fx-font-size: 16px;
+    -fx-fill: #FFFFFF;
+    -fx-text-fill: #FFFFFF;
+}
+
+.input-fields TextField {
+    -fx-background-color: #FFFFFF, #1B1B1B;
+    /*-fx-background-color: transparent;*/
+    /*-fx-background-insets: 0, 0, 0;*/
+    -fx-background-radius: 10;
+    -fx-font-size: 18px;
+}
+
+.text-field-text {
+    -fx-opacity: 80%;
+    -fx-font-family: "urbanist";
+    -fx-font-weight: bold;
+}
+
+.login-form Button {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #1B1B1B;
+    -fx-font-size: 18px;
+}

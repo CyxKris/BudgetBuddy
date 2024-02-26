@@ -1,0 +1,32 @@
+.menu-bar {
+    -fx-background-color: #272727;
+    -fx-background-radius: 20;
+}
+
+.menu-bar .profile ImageView {
+    -fx-background-radius: 10;
+    -fx-background-color: #3A3A3A;
+}
+
+.menu-bar .profile Text {
+    -fx-fill: #DAFF01;
+    -fx-font-size: 16px;
+}
+
+.menu-bar .views Hyperlink {
+    -fx-text-fill: #FFFFFF;
+    -fx-cursor: hand;
+}
+
+.menu-bar Button {
+    -fx-background-color: #363636;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
+.menu-bar Button:hover {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #1B1B1B;
+}

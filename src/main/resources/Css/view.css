@@ -1,0 +1,11 @@
+
+.view-pane {
+    -fx-background-color: #272727;
+    -fx-background-radius: 20;
+    -fx-padding: 24 10 24 10;
+}
+
+.view-pane Text {
+    -fx-fill: #FFFFFF;
+    -fx-font-size: 24px;
+}
