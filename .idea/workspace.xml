@@ -4,43 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/AppMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/DashboardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/SignInController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/SplashController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/MainStage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/ViewFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Css/app-menu.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Css/sign-in.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Css/view.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-Italic-VariableFont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-VariableFont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/app-menu.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/dashboard-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/login.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/sign-in.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/transactions-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/splash.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/bb-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/sample.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/splash_screen.png" afterDir="false" />
-    </list>
+    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="First commit." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -152,14 +116,36 @@
       <workItem from="1708723141608" duration="3940000" />
       <workItem from="1708875716485" duration="21055000" />
       <workItem from="1708955670721" duration="3199000" />
-      <workItem from="1708967987327" duration="2563000" />
+      <workItem from="1708967987327" duration="2866000" />
     </task>
+    <task id="LOCAL-00001" summary="First commit.">
+      <option name="closed" value="true" />
+      <created>1708972229857</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708972229857</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="First commit." />
+    <option name="LAST_COMMIT_MESSAGE" value="First commit." />
   </component>
 </project>
