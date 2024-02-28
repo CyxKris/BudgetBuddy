@@ -4,24 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;chore: Removed the &lt;children&gt; wrapper tag in the dashboard-view.fxml file.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Models/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/app-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/settings-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/test.fxml" afterDir="false" />
+    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;chore: Implemented the routes between the login, signIn and main app scenes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Models/DatabaseConnector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/TestWithClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/TestWithFxml.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/AppMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/AppMenuTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/AppView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/AppMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/AppSceneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/SignInController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/ViewFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Css/app-menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/app-menu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Views/app-menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/app-menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Views/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Views/sign-in.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/sign-in.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Views/transactions-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/transactions-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Views/app-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/app-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +25,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -70,13 +63,15 @@
     "Application.App.executor": "Run",
     "Application.BudgetBuddyApp.executor": "Run",
     "Application.CustomTitleBarDemo.executor": "Run",
+    "Application.Test.executor": "Run",
+    "Application.TestWithClass.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/cyxkr/Documents/Programming/Java/JavaFx/BudgetBuddy/src/main/resources/Images",
+    "last_opened_file_path": "C:/Users/cyxkr/Documents/Programming/Java/JavaFx/BudgetBuddy",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -119,9 +114,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cyx.budgetbuddy.Test" />
+      <module name="BudgetBuddy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cyx.budgetbuddy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestWithClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cyx.budgetbuddy.TestWithClass" />
+      <module name="BudgetBuddy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cyx.budgetbuddy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.TestWithClass" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.BudgetBuddyApp" />
       </list>
     </recent_temporary>
@@ -138,7 +161,9 @@
       <workItem from="1708723141608" duration="3940000" />
       <workItem from="1708875716485" duration="21055000" />
       <workItem from="1708955670721" duration="3199000" />
-      <workItem from="1708967987327" duration="12256000" />
+      <workItem from="1708967987327" duration="12719000" />
+      <workItem from="1709026614714" duration="6766000" />
+      <workItem from="1709114308907" duration="13156000" />
     </task>
     <task id="LOCAL-00001" summary="First commit.">
       <option name="closed" value="true" />
@@ -180,7 +205,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708975876902</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="&#10;chore: Implemented the routes between the login, signIn and main app scenes">
+      <option name="closed" value="true" />
+      <created>1708989238697</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1708989238697</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +237,7 @@
     <MESSAGE value="&#10;Removed unnecessary print statement in ViewFactory.java" />
     <MESSAGE value="&#10;chore: Updated catch blocks to use the java.util.logging package." />
     <MESSAGE value="&#10;chore: Removed the &lt;children&gt; wrapper tag in the dashboard-view.fxml file." />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;chore: Removed the &lt;children&gt; wrapper tag in the dashboard-view.fxml file." />
+    <MESSAGE value="&#10;chore: Implemented the routes between the login, signIn and main app scenes" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;chore: Implemented the routes between the login, signIn and main app scenes" />
   </component>
 </project>

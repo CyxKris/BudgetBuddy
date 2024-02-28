@@ -4,6 +4,7 @@ import com.cyx.budgetbuddy.Models.User;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -48,15 +49,47 @@ public class ViewFactory {
 
     public static void showAppScene(User user) {
         // Loading the new app-view fxml file into a new scene and showing it.
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(Objects.requireNonNull(ViewFactory.class.getResource("/Fxml/Views/app-view.fxml")));
-        } catch (IOException e) {
-            logger.severe("An error occurred: " + e.getMessage());
-            logger.severe("Stack trace: " + e);
-        }
+        Parent root = new AppView();
         setAndShowStage(root);
     }
 
 
+    public static Parent loadTransactionsView() {
+        Parent root = null;
+
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(ViewFactory.class.getResource("/Fxml/Views/transactions-view.fxml")));
+        } catch (IOException e) {
+            logger.severe("An error occurred: " + e.getMessage());
+            logger.severe("Stack trace: " + e);
+        }
+
+        return root;
+    }
+
+    public static Parent loadSettingsView() {
+        Parent root = null;
+
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(ViewFactory.class.getResource("/Fxml/Views/settings-view.fxml")));
+        } catch (IOException e) {
+            logger.severe("An error occurred: " + e.getMessage());
+            logger.severe("Stack trace: " + e);
+        }
+
+        return root;
+    }
+
+    public static Parent loadDashboardView() {
+        Parent root = null;
+
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(ViewFactory.class.getResource("/Fxml/Views/dashboard-view.fxml")));
+        } catch (IOException e) {
+            logger.severe("An error occurred: " + e.getMessage());
+            logger.severe("Stack trace: " + e);
+        }
+
+        return root;
+    }
 }

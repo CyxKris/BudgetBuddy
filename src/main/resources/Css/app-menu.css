@@ -13,12 +13,31 @@
     -fx-font-size: 16px;
 }
 
-.menu-bar .views .link {
+.menu-bar .link {
+    -fx-font-size: 16px;
     -fx-text-fill: #FFFFFF;
     -fx-cursor: hand;
+    -fx-underline: false;
 }
 
-.menu-bar .views .link.selected {
+.menu-bar .link FontIcon {
+    -fx-fill: #FFFFFF;
+}
+
+.menu-bar .link:hover {
+    -fx-underline: true;
+    /*-fx-text-fill: #DAFF01;*/
+}
+
+.menu-bar .link:focused FontIcon {
+    -fx-fill: #DAFF01;
+}
+
+.menu-bar .link:visited {
+    -fx-underline: false;
+}
+
+.menu-bar .link:focused {
     -fx-text-fill: #DAFF01;
 }
 
@@ -30,7 +49,16 @@
     -fx-cursor: hand;
 }
 
+.menu-bar Button FontIcon {
+    -fx-fill: #FFFFFF;
+}
+
 .menu-bar Button:hover {
     -fx-background-color: #FFFFFF;
     -fx-text-fill: #1B1B1B;
+}
+
+/* Change the color of FontIcons to black when logOutButton is hovered over */
+.menu-bar Button:hover FontIcon {
+    -fx-fill: #1B1B1B;
 }
