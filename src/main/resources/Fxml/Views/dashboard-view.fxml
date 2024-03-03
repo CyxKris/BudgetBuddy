@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1000.0" styleClass="view-pane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <stylesheets>
       <URL value="@../../Css/app.css" />
       <URL value="@../../Css/view.css" />
    </stylesheets>
-   <Text layoutX="267.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Dashboard View" />
+   <Label layoutX="326.0" layoutY="293.0" text="The Dashboard View" />
 </AnchorPane>

@@ -7,7 +7,6 @@ import javafx.scene.layout.BorderPane;
 
 public class AppView extends BorderPane {
     private SubScene subScene;
-    private final AppMenu menu;
 
     public AppView() {
         super();
@@ -15,19 +14,20 @@ public class AppView extends BorderPane {
         this.setPadding(new Insets(20));
         this.setPrefSize(1250, 680);
 
-        menu = new AppMenu();
+        AppMenu menu = new AppMenu();
         this.setLeft(menu);
 
         Parent initialView = ViewFactory.loadDashboardView();
         subScene = new SubScene(initialView, 1000, 640);
 
-        menu.getTransactionsLink().setOnAction(event -> setSubScene(ViewFactory.loadTransactionsView()));
-        menu.getSettingsLink().setOnAction(event -> setSubScene(ViewFactory.loadSettingsView()));
-        menu.getDashboardLink().setOnAction(event -> setSubScene(ViewFactory.loadDashboardView()));
-        menu.getLogoutButton().setOnAction(event -> ViewFactory.showLogInScene());
+        menu.getTransactionsLink().setOnAction(event -> loadTransactionsView());
+        menu.getSettingsLink().setOnAction(event -> loadSettingsView());
+        menu.getDashboardLink().setOnAction(event -> loadDashboardView());
+        menu.getLogoutButton().setOnAction(event -> logOut());
 
         this.setCenter(subScene);
     }
+
 
     private void setSubScene(Parent view) {
         if (subScene != null) {
@@ -36,6 +36,25 @@ public class AppView extends BorderPane {
             subScene = new SubScene(view, 1000, 640);
             this.setCenter(subScene);
         }
+    }
+
+    private void loadTransactionsView() {
+        Parent view = ViewFactory.loadTransactionsView();
+        setSubScene(view);
+    }
+
+    private void loadSettingsView() {
+        Parent view = ViewFactory.loadSettingsView();
+        setSubScene(view);
+    }
+
+    private void loadDashboardView() {
+        Parent view = ViewFactory.loadDashboardView();
+        setSubScene(view);
+    }
+
+    private void logOut() {
+        ViewFactory.showLogInScene();
     }
 }
 

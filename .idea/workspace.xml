@@ -4,24 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;chore: Updates">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-Black.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-ExtraBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-ExtraLight.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-SemiBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-Thin.ttf" afterDir="false" />
+    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;chore: Replaced variable font files with static files">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/AppView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/AppView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/ViewFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/sign-in.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/sign-in.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Css/view.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/view.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Views/dashboard-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/dashboard-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Views/settings-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/settings-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Views/transactions-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/transactions-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +165,7 @@
       <workItem from="1709205649643" duration="4360000" />
       <workItem from="1709408021327" duration="681000" />
       <workItem from="1709409100183" duration="184000" />
-      <workItem from="1709484147403" duration="2454000" />
+      <workItem from="1709484147403" duration="5348000" />
     </task>
     <task id="LOCAL-00001" summary="First commit.">
       <option name="closed" value="true" />
@@ -241,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709128790920</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="&#10;chore: Replaced variable font files with static files">
+      <option name="closed" value="true" />
+      <created>1709490338988</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1709490338988</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,6 +266,7 @@
     <MESSAGE value="&#10;chore: Implemented the routes between the login, signIn and main app scenes" />
     <MESSAGE value="&#10;fix: Fixed the dashboard&#10;&#10;Updated the ViewFactory class to include controls for switching the subScene in the AppMenu class." />
     <MESSAGE value="&#10;chore: Updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;chore: Updates" />
+    <MESSAGE value="&#10;chore: Replaced variable font files with static files" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;chore: Replaced variable font files with static files" />
   </component>
 </project>

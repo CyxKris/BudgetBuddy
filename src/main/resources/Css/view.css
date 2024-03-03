@@ -5,9 +5,9 @@
     -fx-padding: 24 10 24 10;
 }
 
-.view-pane Text {
+.view-pane Label {
     -fx-fill: #FFFFFF;
-    -fx-font-family: "urbanist-black";
-    -fx-font-size: 48px;
-    -fx-font-weight: 900;
+    -fx-font-family: "urbanist-semibold";
+    -fx-font-size: 36px;
+    -fx-font-weight: 700;
 }
