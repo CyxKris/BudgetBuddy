@@ -1,8 +1,64 @@
 @font-face {
-    font-family: "urbanist";
-    font-weight: 100 1000;
+    font-family: "urbanist-thin";
+    font-weight: 100;
     font-style: normal;
-    src: url('../fonts/Urbanist-VariableFont.ttf') format('truetype');
+    src: url('../fonts/Urbanist-Thin.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "urbanist-e-light";
+    font-weight: 200;
+    font-style: normal;
+    src: url('../fonts/Urbanist-ExtraLight.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "urbanist-light";
+    font-weight: 300;
+    font-style: normal;
+    src: url('../fonts/Urbanist-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "urbanist";
+    font-weight: 400;
+    font-style: normal;
+    src: url('../fonts/Urbanist-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "urbanist-medium";
+    font-weight: 500;
+    font-style: normal;
+    src: url('../fonts/Urbanist-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "urbanist-bold";
+    font-weight: 600;
+    font-style: normal;
+    src: url('../fonts/Urbanist-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "urbanist-semibold";
+    font-weight: 700;
+    font-style: normal;
+    src: url('../fonts/Urbanist-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "urbanist-extrabold";
+    font-weight: 800;
+    font-style: normal;
+    src: url('../fonts/Urbanist-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "urbanist-black";
+    font-weight: 900;
+    font-style: normal;
+    src: url('../fonts/Urbanist-Black.ttf') format('truetype');
 }
 
 /*  Styling the root panel of the scene */

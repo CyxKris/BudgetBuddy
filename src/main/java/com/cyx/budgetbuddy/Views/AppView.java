@@ -27,8 +27,6 @@ public class AppView extends BorderPane {
         menu.getLogoutButton().setOnAction(event -> ViewFactory.showLogInScene());
 
         this.setCenter(subScene);
-//        stage.setScene(new Scene(this));
-//        stage.show();
     }
 
     private void setSubScene(Parent view) {

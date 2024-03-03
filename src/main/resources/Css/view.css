@@ -7,5 +7,7 @@
 
 .view-pane Text {
     -fx-fill: #FFFFFF;
-    -fx-font-size: 24px;
+    -fx-font-family: "urbanist-black";
+    -fx-font-size: 48px;
+    -fx-font-weight: 900;
 }

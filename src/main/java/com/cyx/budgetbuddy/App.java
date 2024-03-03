@@ -1,6 +1,5 @@
 package com.cyx.budgetbuddy;
 
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import java.util.Objects;
 
 public class App extends Application {
 
@@ -18,7 +19,7 @@ public class App extends Application {
         System.setProperty("prism.lcdtext", "false");
 
         // Loading the Splash Screen FXML file
-        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/splash.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/splash.fxml")));
         // Setting the scene to the splash screen
         Scene scene = new Scene(root);
         // Setting the title and icon of the stage
@@ -32,4 +33,3 @@ public class App extends Application {
         stage.show();
     }
 }
- 

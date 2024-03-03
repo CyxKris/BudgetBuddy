@@ -12,7 +12,8 @@
 }
 /* Styling the Main title of the root panel */
 .root-pane .title-text {
-    -fx-font-weight: bold;
+    -fx-font-family: "urbanist-semibold";
+    -fx-font-weight: 700;
     -fx-font-size: 32px;
 }
 /* Styling the Main subtitle of the root panel */
@@ -41,16 +42,14 @@
 
 .input-fields TextField, .input-fields PasswordField {
     -fx-background-color: #FFFFFF, #1B1B1B;
-    /*-fx-background-color: transparent;*/
-    /*-fx-background-insets: 0, 0, 0;*/
     -fx-background-radius: 10;
     -fx-font-size: 18px;
 }
 
 .text-field-text, .password-field-text {
     -fx-opacity: 80%;
-    -fx-font-family: "urbanist";
-    -fx-font-weight: bold;
+    -fx-font-family: "urbanist-semibold";
+    -fx-font-weight: 700;
 }
 
 .login-form Button {

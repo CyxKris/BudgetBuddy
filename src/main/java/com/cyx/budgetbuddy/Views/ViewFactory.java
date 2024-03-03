@@ -4,7 +4,6 @@ import com.cyx.budgetbuddy.Models.User;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -48,7 +47,8 @@ public class ViewFactory {
     }
 
     public static void showAppScene(User user) {
-        // Loading the new app-view fxml file into a new scene and showing it.
+        // Loading the new app-
+        System.out.println(user.getUsername());
         Parent root = new AppView();
         setAndShowStage(root);
     }

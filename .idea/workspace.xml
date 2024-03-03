@@ -4,17 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;chore: Implemented the routes between the login, signIn and main app scenes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Models/DatabaseConnector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/TestWithClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/TestWithFxml.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/AppMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/AppMenuTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/AppView.java" afterDir="false" />
+    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;chore: Updates">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-Black.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-ExtraBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-ExtraLight.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-Medium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-SemiBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fonts/Urbanist-Thin.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/AppView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/AppView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/ViewFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/app-menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/app-menu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Views/app-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/app-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/sign-in.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/sign-in.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/view.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/view.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,19 +78,20 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/cyxkr/Documents/Programming/Java/JavaFx/BudgetBuddy",
+    "last_opened_file_path": "C:/Users/cyxkr/Documents/Programming/Java/JavaFx/BudgetBuddy/src/main/resources/Fonts",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.editor",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\cyxkr\Documents\Programming\Java\JavaFx\BudgetBuddy\src\main\resources\Fonts" />
       <recent name="C:\Users\cyxkr\Documents\Programming\Java\JavaFx\BudgetBuddy\src\main\resources\Images" />
     </key>
   </component>
@@ -163,7 +171,11 @@
       <workItem from="1708955670721" duration="3199000" />
       <workItem from="1708967987327" duration="12719000" />
       <workItem from="1709026614714" duration="6766000" />
-      <workItem from="1709114308907" duration="13156000" />
+      <workItem from="1709114308907" duration="13527000" />
+      <workItem from="1709205649643" duration="4360000" />
+      <workItem from="1709408021327" duration="681000" />
+      <workItem from="1709409100183" duration="184000" />
+      <workItem from="1709484147403" duration="2454000" />
     </task>
     <task id="LOCAL-00001" summary="First commit.">
       <option name="closed" value="true" />
@@ -213,7 +225,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708989238697</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="&#10;fix: Fixed the dashboard&#10;&#10;Updated the ViewFactory class to include controls for switching the subScene in the AppMenu class.">
+      <option name="closed" value="true" />
+      <created>1709128746286</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1709128746286</updated>
+    </task>
+    <task id="LOCAL-00008" summary="&#10;chore: Updates">
+      <option name="closed" value="true" />
+      <created>1709128790920</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1709128790920</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,6 +266,8 @@
     <MESSAGE value="&#10;chore: Updated catch blocks to use the java.util.logging package." />
     <MESSAGE value="&#10;chore: Removed the &lt;children&gt; wrapper tag in the dashboard-view.fxml file." />
     <MESSAGE value="&#10;chore: Implemented the routes between the login, signIn and main app scenes" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;chore: Implemented the routes between the login, signIn and main app scenes" />
+    <MESSAGE value="&#10;fix: Fixed the dashboard&#10;&#10;Updated the ViewFactory class to include controls for switching the subScene in the AppMenu class." />
+    <MESSAGE value="&#10;chore: Updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;chore: Updates" />
   </component>
 </project>
