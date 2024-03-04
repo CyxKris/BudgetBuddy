@@ -9,5 +9,5 @@
         <URL value="@../../Css/app.css" />
         <URL value="@../../Css/view.css" />
     </stylesheets>
-   <Label layoutX="349.0" layoutY="293.0" text="The Settings View" />
+   <Label layoutX="349.0" layoutY="293.0" styleClass="main-title" text="The Settings View" />
 </AnchorPane>

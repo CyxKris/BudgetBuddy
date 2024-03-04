@@ -9,19 +9,19 @@
 }
 
 .menu-bar .profile Text {
-    -fx-fill: #DAFF01;
+    -fx-fill: #FFFFFF;
     -fx-font-size: 16px;
 }
 
 .menu-bar .link {
     -fx-font-size: 16px;
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: #6B6B6B;
     -fx-cursor: hand;
     -fx-underline: false;
 }
 
 .menu-bar .link FontIcon {
-    -fx-fill: #FFFFFF;
+    -fx-fill: #6B6B6B;
 }
 
 .menu-bar .link:hover {
@@ -39,6 +39,7 @@
 
 .menu-bar .link:focused {
     -fx-text-fill: #DAFF01;
+    -fx-border-color: transparent;
 }
 
 .menu-bar Button {
