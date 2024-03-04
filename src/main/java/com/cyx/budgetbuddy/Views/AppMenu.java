@@ -13,13 +13,15 @@ import org.kordamp.ikonli.javafx.FontIcon;
 
 import java.util.Objects;
 public class AppMenu extends VBox {
+    private String username;
     private final Hyperlink dashboardLink;
     private final Hyperlink transactionsLink;
     private final Hyperlink settingsLink;
     private final Button logoutButton;
 
-    public AppMenu() {
+    public AppMenu(String username) {
         super();
+        this.username = username;
         dashboardLink = new Hyperlink("Dashboard");
         transactionsLink = new Hyperlink("Transactions");
         settingsLink = new Hyperlink("Settings");
@@ -80,7 +82,7 @@ public class AppMenu extends VBox {
         // Clip the ImageView with the Rectangle
         profileImage.setClip(clip);
 
-        Text greetingText = new Text("Hello, Cyx.");
+        Text greetingText = new Text("Hello, " + username + ".");
         greetingText.getStyleClass().add("greeting-text");
 
         profileBox.getChildren().addAll(profileImage, greetingText);

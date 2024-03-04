@@ -44,8 +44,11 @@ public class LoginController implements Initializable {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        User user = new User(username, password);
-        ViewFactory.showAppScene(user);
+        if (!username.isEmpty() && !username.isBlank() && !password.isBlank() && !password.isEmpty()) {
+            User user = new User(username, password);
+            ViewFactory.showAppScene(user);
+        }
+
     }
 
     private void onGuestLogin() {

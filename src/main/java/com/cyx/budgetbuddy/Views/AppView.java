@@ -8,13 +8,13 @@ import javafx.scene.layout.BorderPane;
 public class AppView extends BorderPane {
     private SubScene subScene;
 
-    public AppView() {
+    public AppView(String username) {
         super();
         this.setStyle("-fx-background-color:#1B1B1B;");
         this.setPadding(new Insets(20));
         this.setPrefSize(1250, 680);
 
-        AppMenu menu = new AppMenu();
+        AppMenu menu = new AppMenu(username);
         this.setLeft(menu);
 
         Parent initialView = ViewFactory.loadDashboardView();

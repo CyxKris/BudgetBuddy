@@ -48,8 +48,7 @@ public class ViewFactory {
 
     public static void showAppScene(User user) {
         // Loading the new app-
-        System.out.println(user.getUsername());
-        Parent root = new AppView();
+        Parent root = new AppView(user.getUsername());
         setAndShowStage(root);
     }
 

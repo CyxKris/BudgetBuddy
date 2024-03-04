@@ -3,14 +3,15 @@ module com.cyx.budgetbuddy {
     requires javafx.fxml;
     requires java.sql;
 
+    // JavaFx controls
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
+    // Icon pack modules
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.ikonli.core;
-    // Icon pack modules
     requires org.kordamp.ikonli.boxicons;
-    // Gluon Icons
-//    requires com.gluonhq.charm.glisten.controls;
+    // ORMLite modules
+    requires ormlite.jdbc;
 
     opens com.cyx.budgetbuddy to javafx.fxml;
     opens com.cyx.budgetbuddy.Controllers to javafx.fxml;

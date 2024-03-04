@@ -5,9 +5,16 @@
     -fx-padding: 24 10 24 10;
 }
 
-.view-pane Label {
+.view-pane Label.main-title {
     -fx-fill: #FFFFFF;
     -fx-font-family: "urbanist-semibold";
     -fx-font-size: 36px;
+    -fx-font-weight: 700;
+}
+
+.view-pane Label.section-title {
+    -fx-fill: indianred;
+    -fx-font-family: "urbanist-semibold";
+    -fx-font-size: 24px;
     -fx-font-weight: 700;
 }
