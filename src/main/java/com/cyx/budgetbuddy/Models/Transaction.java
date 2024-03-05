@@ -6,8 +6,12 @@ import com.j256.ormlite.table.DatabaseTable;
 import java.util.Date;
 import java.util.UUID;
 
+/**
+ * Represents a financial transaction entity.
+ */
 @DatabaseTable(tableName = "Transaction")
 public class Transaction {
+
     @DatabaseField(id = true)
     private UUID transactionId;
 
@@ -34,10 +38,23 @@ public class Transaction {
 
     // Constructors, Getters, and Setters
 
+    /**
+     * Default constructor required by ORMLite.
+     */
     public Transaction() {
         // ORMLite requires a no-arg constructor
     }
 
+    /**
+     * Constructs a new Transaction object with specified parameters.
+     * @param user The user associated with the transaction.
+     * @param budget The budget associated with the transaction.
+     * @param account The account associated with the transaction.
+     * @param amount The amount of the transaction.
+     * @param transactionDate The date of the transaction.
+     * @param category The category of the transaction.
+     * @param description The description of the transaction.
+     */
     public Transaction(User user, Budget budget, Account account, double amount, Date transactionDate, String category, String description) {
         this.transactionId = UUID.randomUUID();
         this.user = user;
@@ -48,6 +65,8 @@ public class Transaction {
         this.category = category;
         this.description = description;
     }
+
+    // Getters and Setters
 
     public UUID getTransactionId() {
         return transactionId;

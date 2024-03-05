@@ -16,22 +16,39 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
+/**
+ * Controller class for the splash screen of the application.
+ */
 public class SplashController implements Initializable {
+
+    // Logger instance for logging messages and errors
     private static final Logger logger = Logger.getLogger(ViewFactory.class.getName());
 
-
-    // Annotating the rootPane field with @FXML to enable FXML injection
+    // Reference to the root pane of the splash screen
     @FXML
     private AnchorPane rootPane;
 
+    /**
+     * Initializes the controller after its root element has been completely processed.
+     * This method is called automatically after the FXML file has been loaded.
+     *
+     * @param url The location used to resolve relative paths for the root object.
+     * @param resourceBundle The resources used to localize the root object, or null.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Starting a new SplashScreen thread when the controller is initialized
         new SplashScreen().start();
     }
 
-    // Inner class for the splash screen functionality
+    /**
+     * Inner class for handling the splash screen functionality.
+     */
     class SplashScreen extends Thread {
+        /**
+         * The entry point for the thread.
+         * This method contains the logic for displaying the splash screen and transitioning to the main application window.
+         */
         @Override
         public void run() {
             try {
@@ -39,17 +56,10 @@ public class SplashController implements Initializable {
                 Thread.sleep(2000);
 
                 // Using Platform.runLater to update the UI on the JavaFX Application Thread
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
+                Platform.runLater(() -> {
+                    try {
                         // Loading the new login fxml file into a new stage and showing it.
-                        Parent root = null;
-                        try {
-                            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/Views/login.fxml")));
-                        } catch (IOException e) {
-                            logger.severe("An error occurred: " + e.getMessage());
-                            logger.severe("Stack trace: " + e);
-                        }
+                        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/Views/login.fxml")));
                         Stage stage = MainStage.getInstance();
                         Scene scene = new Scene(root);
                         stage.setScene(scene);
@@ -65,6 +75,9 @@ public class SplashController implements Initializable {
                         // Hide the current window (splash screen)
                         Stage currentStage = (Stage) rootPane.getScene().getWindow();
                         currentStage.hide();
+                    } catch (IOException e) {
+                        logger.severe("An error occurred: " + e.getMessage());
+                        logger.severe("Stack trace: " + e);
                     }
                 });
             } catch (InterruptedException e) {

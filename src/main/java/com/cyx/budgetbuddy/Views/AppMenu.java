@@ -6,19 +6,27 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import org.kordamp.ikonli.boxicons.BoxiconsSolid;
 import org.kordamp.ikonli.javafx.FontIcon;
 
 import java.util.Objects;
+/**
+ * Custom menu component for the application sidebar.
+ * Displays navigation links and user profile information.
+ */
 public class AppMenu extends VBox {
+
     private String username;
     private final Hyperlink dashboardLink;
     private final Hyperlink transactionsLink;
     private final Hyperlink settingsLink;
     private final Button logoutButton;
 
+    /**
+     * Constructs the application menu with navigation links and logout button.
+     * @param username The username of the currently logged-in user.
+     */
     public AppMenu(String username) {
         super();
         this.username = username;
@@ -26,30 +34,39 @@ public class AppMenu extends VBox {
         transactionsLink = new Hyperlink("Transactions");
         settingsLink = new Hyperlink("Settings");
 
+        // Set style classes for links
         dashboardLink.getStyleClass().add("link");
         transactionsLink.getStyleClass().add("link");
         settingsLink.getStyleClass().add("link");
 
+        // Initialize icons for menu items
         FontIcon dashboardIcon = new FontIcon(BoxiconsSolid.DASHBOARD);
         FontIcon transactionsIcon = new FontIcon(BoxiconsSolid.SPREADSHEET);
         FontIcon settingsIcon = new FontIcon(BoxiconsSolid.COG);
         FontIcon logOutIcon = new FontIcon(BoxiconsSolid.LOG_OUT_CIRCLE);
 
+        // Set icon sizes
         dashboardIcon.setIconSize(24);
         transactionsIcon.setIconSize(24);
         settingsIcon.setIconSize(24);
         logOutIcon.setIconSize(24);
 
+        // Set icons for menu links
         dashboardLink.setGraphic(dashboardIcon);
         transactionsLink.setGraphic(transactionsIcon);
         settingsLink.setGraphic(settingsIcon);
 
         logoutButton = new Button("Log Out");
 
+        // Apply styling to the menu
         setMenuStyling();
+        // Add menu components with appropriate styling
         setMenuComponents(logOutIcon);
     }
 
+    /**
+     * Apply styling to the menu.
+     */
     private void setMenuStyling() {
         this.setAlignment(Pos.CENTER);
         this.setPrefSize(200, 640);
@@ -64,35 +81,39 @@ public class AppMenu extends VBox {
         );
     }
 
+    /**
+     * Add menu components with appropriate styling.
+     * @param logOutIcon The icon for the logout button.
+     */
     private void setMenuComponents(FontIcon logOutIcon) {
+        // Create user profile box
         VBox profileBox = new VBox(8);
         profileBox.setAlignment(Pos.CENTER);
         profileBox.setPrefSize(100, 200);
         profileBox.getStyleClass().add("profile");
 
+        // Load and display user profile image
         ImageView profileImage = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/Images/sample.png"))));
         profileImage.setFitWidth(100);
         profileImage.setFitHeight(100);
 
-        // Create a Rectangle to serve as the clipping shape
-        Rectangle clip = new Rectangle(profileImage.getFitWidth(), profileImage.getFitHeight());
-        clip.setArcWidth(100); // Adjust the corner radius as needed
-        clip.setArcHeight(100); // Adjust the corner radius as needed
-
-        // Clip the ImageView with the Rectangle
-        profileImage.setClip(clip);
-
+        // Create a Rectangle to serve as the clipping shape for the profile image
+        // Set greeting text and add to profile box
         Text greetingText = new Text("Hello, " + username + ".");
         greetingText.getStyleClass().add("greeting-text");
 
+        // Add profile image and greeting text to profile box
         profileBox.getChildren().addAll(profileImage, greetingText);
 
+        // Apply styling to logout button
         logoutButton.getStyleClass().add("logout-button");
         logoutButton.setGraphic(logOutIcon);
 
+        // Add menu components to menu
         this.getChildren().addAll(profileBox, dashboardLink, transactionsLink, settingsLink, logoutButton);
     }
 
+    // Getters for menu components
     public Hyperlink getDashboardLink() {
         return dashboardLink;
     }

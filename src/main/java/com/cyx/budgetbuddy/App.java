@@ -10,26 +10,37 @@ import javafx.stage.StageStyle;
 
 import java.util.Objects;
 
+/**
+ * Main class responsible for initializing and starting the JavaFX application.
+ */
 public class App extends Application {
 
+    /**
+     * The entry point of the JavaFX application.
+     * @param stage The primary stage to display the application.
+     * @throws Exception If an exception occurs during application startup.
+     */
     @Override
     public void start(Stage stage) throws Exception {
         // Set a system property to configure the rendering of text on the screen
-        // Makes sure that all text appears properly on the screen
+        // Ensures that all text appears properly on the screen
         System.setProperty("prism.lcdtext", "false");
 
-        // Loading the Splash Screen FXML file
+        // Load the Splash Screen FXML file
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/splash.fxml")));
-        // Setting the scene to the splash screen
+        // Create a new scene with the loaded FXML content
         Scene scene = new Scene(root);
-        // Setting the title and icon of the stage
-        Image icon = new Image(String.valueOf(getClass().getResource("/Images/bb-icon.png")));
 
+        // Set the title and icon of the stage
+        Image icon = new Image(String.valueOf(getClass().getResource("/Images/bb-icon.png")));
         stage.getIcons().add(icon); // Add the icon to the stage
-        // Removing the default title bar
+
+        // Remove the default title bar to customize the stage appearance
         stage.initStyle(StageStyle.UNDECORATED);
-        // setting the stage shown to the splash scene
+
+        // Set the scene to be displayed on the stage
         stage.setScene(scene);
+        // Display the stage with the splash screen
         stage.show();
     }
 }

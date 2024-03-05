@@ -14,7 +14,9 @@ module com.cyx.budgetbuddy {
     requires ormlite.jdbc;
 
     opens com.cyx.budgetbuddy to javafx.fxml;
-    opens com.cyx.budgetbuddy.Controllers to javafx.fxml;
-    opens com.cyx.budgetbuddy.Views to javafx.fxml;
+    opens com.cyx.budgetbuddy.Controllers to javafx.fxml, ormlite.jdbc;
+    opens com.cyx.budgetbuddy.Views to javafx.fxml, ormlite.jdbc;
+
+    opens com.cyx.budgetbuddy.Models to ormlite.jdbc;
     exports com.cyx.budgetbuddy;
 }
