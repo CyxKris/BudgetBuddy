@@ -45,15 +45,13 @@ public class Budget {
      * @param startDate The start date of the budget period.
      * @param endDate The end date of the budget period.
      * @param budgetAmount The total amount allocated for the budget.
-     * @param remainingAmount The remaining amount in the budget.
      */
-    public Budget(User user, Date startDate, Date endDate, double budgetAmount, double remainingAmount) {
+    public Budget(User user, Date startDate, Date endDate, double budgetAmount) {
         this.budgetId = UUID.randomUUID();
         this.user = user;
         this.startDate = startDate;
         this.endDate = endDate;
         this.budgetAmount = budgetAmount;
-        this.remainingAmount = remainingAmount;
     }
 
     // Getters and Setters

@@ -6,6 +6,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import org.kordamp.ikonli.boxicons.BoxiconsSolid;
 import org.kordamp.ikonli.javafx.FontIcon;
@@ -98,6 +99,13 @@ public class AppMenu extends VBox {
         profileImage.setFitHeight(100);
 
         // Create a Rectangle to serve as the clipping shape for the profile image
+        Rectangle clip = new Rectangle(profileImage.getFitWidth(), profileImage.getFitHeight());
+        clip.setArcWidth(100); // Adjust the corner radius as needed
+        clip.setArcHeight(100); // Adjust the corner radius as needed
+
+        // Clip the ImageView with the Rectangle
+        profileImage.setClip(clip);
+
         // Set greeting text and add to profile box
         Text greetingText = new Text("Hello, " + username + ".");
         greetingText.getStyleClass().add("greeting-text");

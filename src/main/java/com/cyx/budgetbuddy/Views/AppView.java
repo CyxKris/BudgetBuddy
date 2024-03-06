@@ -1,11 +1,16 @@
 package com.cyx.budgetbuddy.Views;
 
+import com.cyx.budgetbuddy.Database.AccountDao;
+import com.cyx.budgetbuddy.Database.BudgetDao;
 import com.cyx.budgetbuddy.Database.DatabaseSetup;
+import com.cyx.budgetbuddy.Database.UserDao;
+import com.cyx.budgetbuddy.Models.User;
 import javafx.scene.Parent;
 import javafx.geometry.Insets;
 import javafx.scene.SubScene;
 import javafx.scene.layout.BorderPane;
 
+import java.util.Date;
 import java.util.logging.Logger;
 
 /**
@@ -18,6 +23,9 @@ public class AppView extends BorderPane {
 
     // SubScene to display the main content
     private SubScene subScene;
+
+    // User object for application
+    private static User user;
 
     /**
      * Constructs an instance of AppView with the specified username.
@@ -32,8 +40,24 @@ public class AppView extends BorderPane {
         this.setPadding(new Insets(20));
         this.setPrefSize(1250, 680);
 
+        // Getting the user from the database
+        UserDao userDao = new UserDao();
+        user = userDao.getUserByUsername(username);
+
+        // Setting the account balance for the user if account doesn't already exist
+        AccountDao accountDao = new AccountDao();
+        if (!accountDao.hasAccount(user)) {
+            accountDao.createOrUpdateAccount(user, 00.00);
+        }
+
+        // Setting the budget balance for the user if budget doesn't already exist
+        BudgetDao budgetDao = new BudgetDao();
+        if (!budgetDao.hasBudget(user)) {
+            budgetDao.createBudget(user, new Date(), new Date(), 00.00);
+        }
+
         // Create the application menu
-        AppMenu menu = new AppMenu(username);
+        AppMenu menu = new AppMenu(user.getUsername());
         this.setLeft(menu);
 
         // Load the initial view for the application
@@ -55,6 +79,15 @@ public class AppView extends BorderPane {
         } catch (Exception e) {
             logger.severe("An error occurred while creating database tables: " + e.getMessage());
         }
+    }
+
+    /**
+     * Returns the specific user object
+     *
+     * @return user object
+     */
+    public static User getUser() {
+        return user;
     }
 
     /**
