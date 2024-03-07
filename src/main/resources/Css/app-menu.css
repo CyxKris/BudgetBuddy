@@ -13,11 +13,42 @@
     -fx-font-size: 16px;
 }
 
+/*.menu-bar .link {*/
+/*    -fx-font-size: 16px;*/
+/*    -fx-text-fill: #6B6B6B;*/
+/*    -fx-cursor: hand;*/
+/*    -fx-underline: false;*/
+/*    -fx-border-color: transparent;*/
+/*}*/
+
+/*.menu-bar .link FontIcon {*/
+/*    -fx-fill: #6B6B6B;*/
+/*}*/
+
+/*.menu-bar .link:hover {*/
+/*    -fx-underline: true;*/
+/*    !*-fx-text-fill: #DAFF01;*!*/
+/*}*/
+
+/*.menu-bar .link:focused FontIcon {*/
+/*    -fx-fill: #DAFF01;*/
+/*}*/
+
+/*.menu-bar .link:visited {*/
+/*    -fx-underline: false;*/
+/*}*/
+
+/*.menu-bar .link:focused {*/
+/*    -fx-text-fill: #DAFF01;*/
+/*    -fx-border-color: transparent;*/
+/*}*/
+
 .menu-bar .link {
     -fx-font-size: 16px;
     -fx-text-fill: #6B6B6B;
     -fx-cursor: hand;
     -fx-underline: false;
+    -fx-border-color: transparent;
 }
 
 .menu-bar .link FontIcon {
@@ -29,18 +60,25 @@
     /*-fx-text-fill: #DAFF01;*/
 }
 
-.menu-bar .link:focused FontIcon {
-    -fx-fill: #DAFF01;
-}
-
 .menu-bar .link:visited {
     -fx-underline: false;
 }
 
-.menu-bar .link:focused {
+/* Apply special color to active link */
+.menu-bar .link.active-link,
+.menu-bar .link.active-link:hover {
     -fx-text-fill: #DAFF01;
-    -fx-border-color: transparent;
 }
+
+.menu-bar .link.active-link FontIcon {
+    -fx-fill: #DAFF01;
+}
+
+
+
+/*.pressed-link {*/
+/*    -fx-text-fill: #DAFF01; !* Change this to the desired pressed color *!*/
+/*}*/
 
 .menu-bar Button {
     -fx-background-color: #363636;

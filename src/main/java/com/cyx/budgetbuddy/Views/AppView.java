@@ -8,6 +8,7 @@ import com.cyx.budgetbuddy.Models.User;
 import javafx.scene.Parent;
 import javafx.geometry.Insets;
 import javafx.scene.SubScene;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.BorderPane;
 
 import java.util.Date;
@@ -26,6 +27,8 @@ public class AppView extends BorderPane {
 
     // User object for application
     private static User user;
+
+    private Hyperlink activeLink;
 
     /**
      * Constructs an instance of AppView with the specified username.
@@ -58,6 +61,9 @@ public class AppView extends BorderPane {
 
         // Create the application menu
         AppMenu menu = new AppMenu(user.getUsername());
+        // Setting the active link
+        activeLink = menu.getDashboardLink();
+        activeLink.getStyleClass().add("active-link");
         this.setLeft(menu);
 
         // Load the initial view for the application
@@ -65,9 +71,9 @@ public class AppView extends BorderPane {
         subScene = new SubScene(initialView, 1000, 640);
 
         // Set event handlers for menu items
-        menu.getTransactionsLink().setOnAction(event -> loadTransactionsView());
-        menu.getSettingsLink().setOnAction(event -> loadSettingsView());
-        menu.getDashboardLink().setOnAction(event -> loadDashboardView());
+        menu.getTransactionsLink().setOnAction(event -> loadTransactionsView(menu.getTransactionsLink()));
+        menu.getSettingsLink().setOnAction(event -> loadSettingsView(menu.getSettingsLink()));
+        menu.getDashboardLink().setOnAction(event -> loadDashboardView(menu.getDashboardLink()));
         menu.getLogoutButton().setOnAction(event -> logOut());
 
         // Set the initial view as the center content
@@ -107,24 +113,60 @@ public class AppView extends BorderPane {
     /**
      * Loads and sets the transactions view.
      */
-    private void loadTransactionsView() {
+    private void loadTransactionsView(Hyperlink link) {
         Parent view = ViewFactory.loadTransactionsView();
+
+        // Remove active style from previous active link
+        if (activeLink != null) {
+            activeLink.getStyleClass().remove("active-link");
+        }
+
+        // Update active link
+        activeLink = link;
+
+        // Apply active style to the current active link
+        activeLink.getStyleClass().add("active-link");
+
         setSubScene(view);
     }
 
     /**
      * Loads and sets the settings view.
      */
-    private void loadSettingsView() {
+    private void loadSettingsView(Hyperlink link) {
         Parent view = ViewFactory.loadSettingsView();
+
+        // Remove active style from previous active link
+        if (activeLink != null) {
+            activeLink.getStyleClass().remove("active-link");
+        }
+
+        // Update active link
+        activeLink = link;
+
+        // Apply active style to the current active link
+        activeLink.getStyleClass().add("active-link");
+
         setSubScene(view);
     }
 
     /**
      * Loads and sets the dashboard view.
      */
-    private void loadDashboardView() {
+    private void loadDashboardView(Hyperlink link) {
         Parent view = ViewFactory.loadDashboardView();
+
+        // Remove active style from previous active link
+        if (activeLink != null) {
+            activeLink.getStyleClass().remove("active-link");
+        }
+
+        // Update active link
+        activeLink = link;
+
+        // Apply active style to the current active link
+        activeLink.getStyleClass().add("active-link");
+
         setSubScene(view);
     }
 

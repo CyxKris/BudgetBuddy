@@ -1,0 +1,33 @@
+DialogPane {
+    -fx-background-radius: 20;
+}
+
+DialogPane Label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+}
+
+DialogPane Label.header {
+    -fx-font-family: "urbanist-semibold";
+    -fx-font-weight: 700;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 18px;
+}
+
+DialogPane Button {
+    -fx-font-family: "urbanist-semibold";
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 20;
+    -fx-text-fill: #1B1B1B;
+    -fx-cursor: hand;
+    /*-fx-background-color: #FFFFFF;*/
+}
+
+DialogPane Button.cancel {
+    -fx-background-color: indianred;
+}
+
+DialogPane Button.save {
+    -fx-background-color: #DAFF01;
+}

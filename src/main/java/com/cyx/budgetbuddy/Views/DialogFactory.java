@@ -87,7 +87,8 @@ public class DialogFactory {
 
         VBox root = new VBox(10, new Label("Edit Expense"), formPane, buttonBox);
         root.setPadding(new Insets(10));
-        root.setPrefHeight(350);
+        root.setStyle("-fx-background-color: #1B1B1B; -fx-text-fill: white; -fx-fill: white; -fx-background-radius: 20;");
+        root.setPrefHeight(280);
 
         Scene scene = new Scene(root);
         dialog.setScene(scene);

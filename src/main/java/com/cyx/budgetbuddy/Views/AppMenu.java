@@ -65,6 +65,7 @@ public class AppMenu extends VBox {
         setMenuComponents(logOutIcon);
     }
 
+
     /**
      * Apply styling to the menu.
      */

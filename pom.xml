@@ -78,7 +78,11 @@
             <artifactId>ormlite-jdbc</artifactId>
             <version>6.1</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.dlsc.gemsfx</groupId>
+            <artifactId>gemsfx</artifactId>
+            <version>2.3.0</version>
+        </dependency>
     </dependencies>
 
     <repositories>
@@ -86,6 +90,12 @@
             <id>gluon-nexus-repository</id>
             <url>https://nexus.gluonhq.com/nexus/content/repositories/releases/</url>
         </repository>
+<!--        <repository>-->
+<!--            <id></id>-->
+<!--            <name></name>-->
+<!--            <url></url>-->
+<!--        </repository>-->
+
     </repositories>
 
     <build>
