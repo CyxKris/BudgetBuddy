@@ -75,11 +75,6 @@
 }
 
 
-
-/*.pressed-link {*/
-/*    -fx-text-fill: #DAFF01; !* Change this to the desired pressed color *!*/
-/*}*/
-
 .menu-bar Button {
     -fx-background-color: #363636;
     -fx-text-fill: #FFFFFF;

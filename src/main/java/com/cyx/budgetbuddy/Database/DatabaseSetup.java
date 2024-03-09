@@ -8,6 +8,7 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 
 /**
@@ -15,6 +16,9 @@ import java.sql.SQLException;
  * Creates necessary tables if they do not exist in the database.
  */
 public class DatabaseSetup {
+
+    // Logger instance for logging errors
+    private static final Logger logger = Logger.getLogger(DatabaseSetup.class.getName());
 
     // Object used for synchronization
     private static final Object lock = new Object();
@@ -24,7 +28,7 @@ public class DatabaseSetup {
      * Uses synchronization to ensure thread safety.
      * @throws SQLException if an SQL exception occurs during table creation.
      */
-    public static synchronized void createTablesIfNotExist() throws SQLException {
+    public static synchronized void createTablesIfNotExist() {
         // Synchronize access to ensure thread safety
         synchronized (lock) {
             try {
@@ -36,9 +40,13 @@ public class DatabaseSetup {
                 TableUtils.createTableIfNotExists(connectionSource, Account.class);
                 TableUtils.createTableIfNotExists(connectionSource, Budget.class);
                 TableUtils.createTableIfNotExists(connectionSource, Transaction.class);
-            } finally {
-                // Do not close the connection here to allow reuse
-                // Connection should be closed elsewhere, where appropriate
+
+                // Create the guest user
+                UserDao userDao = new UserDao();
+                User guestUser = new User("Guest", "1234");
+                userDao.createUserIfNotExists(guestUser);
+            } catch (SQLException e) {
+                logger.severe("Error in setting up database: " + e);
             }
         }
     }

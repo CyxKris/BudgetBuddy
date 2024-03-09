@@ -17,6 +17,7 @@ public class MainStage extends Stage {
         Image icon = new Image(String.valueOf(getClass().getResource("/Images/bb-icon.png")));
         this.getIcons().add(icon); // Add the icon to the stage
         this.setTitle("BudgetBuddy"); // Set the title of the stage
+        this.setResizable(false); // Preventing users from resizing the window
     }
 
     // Method to get the singleton instance of MainStage

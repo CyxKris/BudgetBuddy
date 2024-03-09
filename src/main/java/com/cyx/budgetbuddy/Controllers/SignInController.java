@@ -11,6 +11,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
@@ -38,8 +39,13 @@ public class SignInController implements Initializable {
     @FXML
     private Button signInButton;
 
+    private final UserDao userDao = new UserDao();
+
     // Logger instance for logging errors
     private static final Logger logger = Logger.getLogger(SignInController.class.getName());
+
+    public SignInController() throws SQLException {
+    }
 
     /**
      * Initializes the controller.
@@ -81,8 +87,7 @@ public class SignInController implements Initializable {
             User user = new User(username, password);
 
             try {
-                // Create UserDao instance to interact with the database
-                UserDao userDao = new UserDao();
+
                 // Check if the user already exists, if not, create the user
                 boolean userCreated = userDao.createUserIfNotExists(user);
 
@@ -107,10 +112,9 @@ public class SignInController implements Initializable {
      * Creates a guest user instance and shows the app scene.
      */
     private void onGuestLogin() throws Exception {
-        // Create a guest user instance
-        User user = new User("Guest", "1234");
-        // Show the app scene with the guest user
-        ViewFactory.showAppScene(user);
+        // Get the guest user instance and show the main app scene
+        User guestUser = userDao.getUserByUsername("Guest");
+        ViewFactory.showAppScene(guestUser);
     }
 
     /**

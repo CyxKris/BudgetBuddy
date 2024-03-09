@@ -2,7 +2,6 @@ package com.cyx.budgetbuddy.Views;
 
 import com.cyx.budgetbuddy.Database.AccountDao;
 import com.cyx.budgetbuddy.Database.BudgetDao;
-import com.cyx.budgetbuddy.Database.DatabaseSetup;
 import com.cyx.budgetbuddy.Database.UserDao;
 import com.cyx.budgetbuddy.Models.User;
 import javafx.scene.Parent;
@@ -12,15 +11,12 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.BorderPane;
 
 import java.util.Date;
-import java.util.logging.Logger;
 
 /**
  * Represents the main view of the application.
  * This class manages the layout and switching of scenes within the application.
  */
 public class AppView extends BorderPane {
-    // Logger for handling logging messages
-    private static final Logger logger = Logger.getLogger(AppView.class.getName());
 
     // SubScene to display the main content
     private SubScene subScene;
@@ -78,13 +74,6 @@ public class AppView extends BorderPane {
 
         // Set the initial view as the center content
         this.setCenter(subScene);
-
-        // Create database tables if they do not exist
-        try {
-            DatabaseSetup.createTablesIfNotExist();
-        } catch (Exception e) {
-            logger.severe("An error occurred while creating database tables: " + e.getMessage());
-        }
     }
 
     /**

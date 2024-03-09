@@ -1,5 +1,6 @@
 package com.cyx.budgetbuddy.Controllers;
 
+import com.cyx.budgetbuddy.Database.DatabaseSetup;
 import com.cyx.budgetbuddy.Views.MainStage;
 import com.cyx.budgetbuddy.Views.ViewFactory;
 import javafx.application.Platform;
@@ -68,6 +69,13 @@ public class SplashController implements Initializable {
                         stage.setOnCloseRequest(event -> {
                             Platform.exit(); // Ensure the JavaFX thread is properly terminated
                         });
+
+                        // Create database tables if they do not exist
+                        try {
+                            DatabaseSetup.createTablesIfNotExist();
+                        } catch (Exception e) {
+                            logger.severe("An error occurred while creating database tables: " + e.getMessage());
+                        }
 
                         // Show the main stage
                         stage.show();

@@ -1,11 +1,9 @@
 package com.cyx.budgetbuddy.Views;
 
-import com.cyx.budgetbuddy.Controllers.DashboardController;
 import com.cyx.budgetbuddy.Database.BudgetDao;
 import com.cyx.budgetbuddy.Models.Account;
 import com.cyx.budgetbuddy.Models.Budget;
 import com.cyx.budgetbuddy.Models.DateUtils;
-import com.cyx.budgetbuddy.Models.User;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -41,7 +39,7 @@ public class DialogFactory {
         }
     }
 
-    public DialogFactory() throws SQLException {
+    public DialogFactory() {
     }
 
     public static void showBudgetDialog(Budget budget) {
@@ -93,6 +91,10 @@ public class DialogFactory {
         Scene scene = new Scene(root);
         dialog.setScene(scene);
         dialog.showAndWait();
+    }
+
+    public static void showAccountDialog(Account account) {
+
     }
 
     private static Date getDate(DatePicker datePicker) {

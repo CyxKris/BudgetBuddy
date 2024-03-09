@@ -10,6 +10,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
@@ -34,8 +35,13 @@ public class LoginController implements Initializable {
     @FXML
     private TextField usernameField;
 
+    private final UserDao userDao = new UserDao();
+
     // Logger instance for logging errors
     private static final Logger logger = Logger.getLogger(LoginController.class.getName());
+
+    public LoginController() throws SQLException {
+    }
 
     /**
      * Initializes the controller.
@@ -79,7 +85,6 @@ public class LoginController implements Initializable {
 
         // Check if username and password fields are not empty
         if (!username.isEmpty() && !username.isBlank() && !password.isBlank() && !password.isEmpty()) {
-            UserDao userDao = new UserDao();
             // Authenticate the User
             if (userDao.authenticateUser(username, password)) {
                 // Retrieve user object from database
@@ -99,8 +104,8 @@ public class LoginController implements Initializable {
      * Creates a guest user instance and shows the main app scene with the guest user.
      */
     private void onGuestLogin() throws Exception {
-        // Create a guest user instance and show the main app scene
-        User guestUser = new User("Guest", "1234");
+        // Get the guest user instance and show the main app scene
+        User guestUser = userDao.getUserByUsername("Guest");
         ViewFactory.showAppScene(guestUser);
     }
 
