@@ -4,23 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;fix: Fixed the menu links styles&#10;&#10;Started work on the budget popup.">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Css/settings-view.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Css/transactions-view.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Popups/account-popup.fxml" afterDir="false" />
+    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;fix: Fixed the guest log in feature&#10;&#10;Updated Settings view.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/TransactionsViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Css/tables.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Popups/transactions-popup.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budgetbuddy.db" beforeDir="false" afterPath="$PROJECT_DIR$/budgetbuddy.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/SignInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/DatabaseSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/DatabaseSetup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/AppView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/AppView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/DialogFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/DialogFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/MainStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/MainStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/ViewFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/app-menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/app-menu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Views/dashboard-new.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/dashboard-new.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Views/settings-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/settings-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/transactions-view.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/transactions-view.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Popups/account-popup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Popups/account-popup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Popups/budget-popup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Popups/budget-popup.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Views/transactions-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/transactions-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,9 +22,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="Class" />
         <option value="FxmlFile" />
-        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -205,7 +196,10 @@
       <workItem from="1709829019671" duration="8333000" />
       <workItem from="1709889824762" duration="4994000" />
       <workItem from="1709987252959" duration="2765000" />
-      <workItem from="1710005226805" duration="1912000" />
+      <workItem from="1710005226805" duration="3237000" />
+      <workItem from="1710091717501" duration="1097000" />
+      <workItem from="1710105523805" duration="4947000" />
+      <workItem from="1710153469125" duration="3327000" />
     </task>
     <task id="LOCAL-00001" summary="First commit.">
       <option name="closed" value="true" />
@@ -327,7 +321,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709832972477</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="&#10;fix: Fixed the guest log in feature&#10;&#10;Updated Settings view.">
+      <option name="closed" value="true" />
+      <created>1710007863446</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1710007863446</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,6 +363,7 @@
     <MESSAGE value="&#10;chore: General code improvements&#10;&#10;Added comments for existing classes. Connected the signIn and logIn controllers with the database." />
     <MESSAGE value="&#10;chore: General updates&#10;&#10;Testing new UI configuration for dashboard view." />
     <MESSAGE value="&#10;fix: Fixed the menu links styles&#10;&#10;Started work on the budget popup." />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;fix: Fixed the menu links styles&#10;&#10;Started work on the budget popup." />
+    <MESSAGE value="&#10;fix: Fixed the guest log in feature&#10;&#10;Updated Settings view." />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;fix: Fixed the guest log in feature&#10;&#10;Updated Settings view." />
   </component>
 </project>
