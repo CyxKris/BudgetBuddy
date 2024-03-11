@@ -46,7 +46,7 @@ public class DashboardController implements Initializable {
             Budget userBudget = budgetDao.getBudgetByUser(AppView.getUser());
 
             budgetAmount.setText(CurrencyFormatUtils.formatCurrency(userBudget.getBudgetAmount()));
-            editBudget.setOnAction(event -> DialogFactory.showDialogBudget(userBudget));
+            editBudget.setOnAction(event -> DialogFactory.showDialogBudget());
 
 
             // HANDLING THE ACCOUNT BALANCE AMOUNT AND EDITING ACTION
@@ -55,7 +55,7 @@ public class DashboardController implements Initializable {
             Account userAccount = accountDao.getAccountByUser(AppView.getUser());
 
             accountBalance.setText(CurrencyFormatUtils.formatCurrency(userAccount.getBalance()));
-            editBalance.setOnAction(event -> DialogFactory.showAccountDialog(userAccount));
+            editBalance.setOnAction(event -> DialogFactory.showAccountDialog());
         } catch (SQLException e) {
             logger.severe("Error loading budgetDao");
         }

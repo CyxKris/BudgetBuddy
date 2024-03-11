@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 public class BudgetDao {
 
     private static final Logger logger = Logger.getLogger(BudgetDao.class.getName());
-    private Dao<Budget, UUID> budgetDao;
+    private final Dao<Budget, UUID> budgetDao;
 
     public BudgetDao() throws SQLException {
         try {

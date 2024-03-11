@@ -4,25 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;feat: Began work on the transactions popup">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/AccountPopupController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/BudgetPopupController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Utils/CurrencyFormatUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Utils/NumericTextFieldUtil.java" afterDir="false" />
+    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;feat: Finished the budget and account popup features">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/TransactionPopupController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/TransactionDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/budgetbuddy.db" beforeDir="false" afterPath="$PROJECT_DIR$/budgetbuddy.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/AccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/AccountDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/TransactionsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/TransactionsViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/BudgetDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/BudgetDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Models/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Models/Budget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Models/DateUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Utils/DateUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/AppView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/AppView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/DialogFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/DialogFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/ViewFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/popup.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/popup.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Popups/account-popup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Popups/account-popup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Popups/budget-popup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Popups/budget-popup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Popups/transactions-popup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Popups/transactions-popup.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,34 +61,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.App.executor": "Run",
-    "Application.BudgetBuddyApp.executor": "Run",
-    "Application.BudgetTrackerApp (1).executor": "Run",
-    "Application.BudgetTrackerApp (2).executor": "Run",
-    "Application.BudgetTrackerApp.executor": "Run",
-    "Application.CustomTitleBarDemo.executor": "Run",
-    "Application.Test.executor": "Run",
-    "Application.TestWithClass.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "dialog",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/cyxkr/Documents/Programming/Java/JavaFx/BudgetBuddy/src/main/resources/Fxml/Popups",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;Application.BudgetBuddyApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.BudgetTrackerApp (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.BudgetTrackerApp (2).executor&quot;: &quot;Run&quot;,
+    &quot;Application.BudgetTrackerApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CustomTitleBarDemo.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestWithClass.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dialog&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/cyxkr/Documents/Programming/Java/JavaFx/BudgetBuddy/src/main/resources/Fxml/Popups&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\cyxkr\Documents\Programming\Java\JavaFx\BudgetBuddy\src\main\resources\Fxml\Popups" />
@@ -214,7 +205,8 @@
       <workItem from="1710005226805" duration="3237000" />
       <workItem from="1710091717501" duration="1097000" />
       <workItem from="1710105523805" duration="4947000" />
-      <workItem from="1710153469125" duration="14018000" />
+      <workItem from="1710153469125" duration="18110000" />
+      <workItem from="1710184570077" duration="4550000" />
     </task>
     <task id="LOCAL-00001" summary="First commit.">
       <option name="closed" value="true" />
@@ -352,7 +344,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710161980747</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="&#10;feat: Finished the budget and account popup features">
+      <option name="closed" value="true" />
+      <created>1710180424315</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1710180424315</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -415,6 +415,7 @@
     <MESSAGE value="&#10;fix: Fixed the menu links styles&#10;&#10;Started work on the budget popup." />
     <MESSAGE value="&#10;fix: Fixed the guest log in feature&#10;&#10;Updated Settings view." />
     <MESSAGE value="&#10;feat: Began work on the transactions popup" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;feat: Began work on the transactions popup" />
+    <MESSAGE value="&#10;feat: Finished the budget and account popup features" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;feat: Finished the budget and account popup features" />
   </component>
 </project>
