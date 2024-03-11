@@ -1,6 +1,11 @@
 package com.cyx.budgetbuddy.Controllers;
 
+import com.cyx.budgetbuddy.App;
+import com.cyx.budgetbuddy.Database.AccountDao;
+import com.cyx.budgetbuddy.Database.BudgetDao;
 import com.cyx.budgetbuddy.Database.TransactionDao;
+import com.cyx.budgetbuddy.Models.Budget;
+import com.cyx.budgetbuddy.Models.User;
 import com.cyx.budgetbuddy.Utils.NumericTextFieldUtil;
 import com.cyx.budgetbuddy.Views.AppView;
 import javafx.beans.binding.Bindings;
@@ -42,6 +47,8 @@ public class TransactionPopupController implements Initializable {
     private Button saveButton;
 
     TransactionDao transactionDao = new TransactionDao();
+    BudgetDao budgetDao = new BudgetDao();
+    AccountDao accountDao = new AccountDao();
 
     // Logger for handling logging messages
     private static final Logger logger = Logger.getLogger(TransactionPopupController.class.getName());
@@ -76,6 +83,14 @@ public class TransactionPopupController implements Initializable {
 
         saveButton.disableProperty().bind(fieldsEmpty);
 
+        saveButton.setOnAction(event -> {
+            try {
+                saveData(event);
+            } catch (SQLException e) {
+                logger.severe("Error saving data: " + e);
+            }
+        });
+
         cancelButton.setOnAction(this::closeDialog);
 
     }
@@ -84,9 +99,26 @@ public class TransactionPopupController implements Initializable {
     private void saveData(ActionEvent event) throws SQLException {
 
         java.util.Date transactionDate = Date.valueOf(date.getValue());
+        String category = categoryChoiceBox.getValue();
 
 
-        transactionDao.createTransaction(AppView.getUser(), Double.parseDouble(transactionAmount.getText()), transactionDate, categoryChoiceBox.getValue(), descriptionField.getText());
+        transactionDao.createTransaction(AppView.getUser(), Double.parseDouble(transactionAmount.getText()), transactionDate, category, descriptionField.getText());
+
+        User user = AppView.getUser();
+
+        // Add or deduct transaction amount from account balance
+        if (category.equals("Income")) {
+            accountDao.updateAccount(user, accountDao.getAccountByUser(user).getBalance() + Double.parseDouble(transactionAmount.getText()));
+        } else if (category.equals("Expense")) {
+            accountDao.updateAccount(user, accountDao.getAccountByUser(user).getBalance() - Double.parseDouble(transactionAmount.getText()));
+        }
+
+        // Update remaining budget if applicable
+        Budget budget = budgetDao.getBudgetByUser(user);
+        if (budget != null && category.equals("Expense")) {
+            budget.setRemainingAmount(budget.getRemainingAmount() - Double.parseDouble(transactionAmount.getText()));
+            budgetDao.updateBudget(user, budget.getStartDate(), budget.getEndDate(), budget.getBudgetAmount());
+        }
 
         closeDialog(event);
     }

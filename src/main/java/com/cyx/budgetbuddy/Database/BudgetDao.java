@@ -40,6 +40,17 @@ public class BudgetDao {
         budgetDao.update(budget);
     }
 
+//    public void updateBudget(User user, Date startDate, Date endDate, double budgetAmount, double remainingAmount) throws SQLException {
+//        Budget budget = getBudgetByUser(user);
+//
+//        budget.setStartDate(startDate);
+//        budget.setEndDate(endDate);
+//        budget.setBudgetAmount(budgetAmount);
+//        budget.setRemainingAmount(remainingAmount);
+//
+//        budgetDao.update(budget);
+//    }
+
 
     public boolean hasBudget(User user) throws SQLException {
         return getBudgetByUser(user) != null;

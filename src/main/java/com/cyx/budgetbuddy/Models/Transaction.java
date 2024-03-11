@@ -2,6 +2,7 @@ package com.cyx.budgetbuddy.Models;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import javafx.beans.property.*;
 
 import java.util.Date;
 import java.util.UUID;
@@ -35,6 +36,14 @@ public class Transaction {
 
     @DatabaseField(canBeNull = false)
     private String description;
+
+
+    // Additional JavaFX properties for UI binding
+    private final StringProperty categoryProperty = new SimpleStringProperty();
+    private final StringProperty descriptionProperty = new SimpleStringProperty();
+    private final ObjectProperty<Date> transactionDateProperty = new SimpleObjectProperty<>();
+    private final DoubleProperty amountProperty = new SimpleDoubleProperty();
+
 
     // Constructors, Getters, and Setters
 
@@ -93,7 +102,7 @@ public class Transaction {
     }
 
     public Date getTransactionDate() {
-        return transactionDate;
+        return transactionDateProperty.get();
     }
 
     public void setTransactionDate(Date transactionDate) {
@@ -101,11 +110,12 @@ public class Transaction {
     }
 
     public String getCategory() {
-        return category;
+        return categoryProperty.get();
     }
 
     public void setCategory(String category) {
         this.category = category;
+        categoryProperty.set(category);
     }
 
     public String getDescription() {
