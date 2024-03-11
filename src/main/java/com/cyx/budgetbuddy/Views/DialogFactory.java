@@ -3,9 +3,11 @@ package com.cyx.budgetbuddy.Views;
 import com.cyx.budgetbuddy.Database.BudgetDao;
 import com.cyx.budgetbuddy.Models.Account;
 import com.cyx.budgetbuddy.Models.Budget;
-import com.cyx.budgetbuddy.Models.DateUtils;
+import com.cyx.budgetbuddy.Utils.DateUtils;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -18,6 +20,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.ZoneId;
 import java.util.Date;
@@ -42,6 +45,28 @@ public class DialogFactory {
     public DialogFactory() {
     }
 
+    public static  void showDialogBudget(Budget budget) {
+        try {
+            FXMLLoader loader = new FXMLLoader(DialogFactory.class.getResource("/Fxml/Popups/budget-popup.fxml"));
+
+            Parent root = loader.load();
+
+            // Create a new stage for the dialog
+            Stage dialogStage = new Stage();
+            dialogStage.initStyle(StageStyle.UNDECORATED);
+            dialogStage.initModality(Modality.APPLICATION_MODAL);
+            dialogStage.setScene(new Scene(root));
+
+            // Set controller if necessary
+            // DialogController controller = loader.getController();
+
+            // Show the dialog
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            logger.severe("Error showing the budget dialog: " + e);
+        }
+    }
+
     public static void showBudgetDialog(Budget budget) {
         Stage dialog = new Stage();
         dialog.initModality(Modality.APPLICATION_MODAL);
@@ -63,7 +88,7 @@ public class DialogFactory {
 
         saveButton.setOnAction(event -> {
             try {
-                budgetDao.updateBudget(budget, DialogFactory.getDate(startDatePicker), DialogFactory.getDate(endDatePicker), Integer.parseInt(budgetField.getText()));
+                budgetDao.updateBudget(AppView.getUser(), DialogFactory.getDate(startDatePicker), DialogFactory.getDate(endDatePicker), Integer.parseInt(budgetField.getText()));
 
             } catch (SQLException e) {
                 logger.severe("Error in updating budget" + e);
@@ -94,7 +119,26 @@ public class DialogFactory {
     }
 
     public static void showAccountDialog(Account account) {
+        try {
+            FXMLLoader loader = new FXMLLoader(DialogFactory.class.getResource("/Fxml/Popups/account-popup.fxml"));
 
+            Parent root = loader.load();
+
+            // Create a new stage for the dialog
+            Stage dialogStage = new Stage();
+            dialogStage.initOwner(ViewFactory.getStage());
+            dialogStage.initStyle(StageStyle.UNDECORATED);
+            dialogStage.initModality(Modality.APPLICATION_MODAL);
+            dialogStage.setScene(new Scene(root));
+
+            // Set controller if necessary
+//             AccountPopupController controller = loader.getController();
+
+            // Show the dialog
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            logger.severe("Error showing the account dialog: " + e);
+        }
     }
 
     private static Date getDate(DatePicker datePicker) {

@@ -3,10 +3,6 @@ import com.cyx.budgetbuddy.Models.Account;
 import com.cyx.budgetbuddy.Models.User;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
-import com.j256.ormlite.jdbc.JdbcConnectionSource;
-import com.j256.ormlite.support.ConnectionSource;
-import com.j256.ormlite.table.TableUtils;
-
 import java.sql.SQLException;
 import java.util.UUID;
 import java.util.logging.Logger;
@@ -25,15 +21,23 @@ public class AccountDao {
         }
     }
 
-    public void createOrUpdateAccount(User user, double initialBalance) throws SQLException {
+    public void createAccount(User user, double initialBalance) throws SQLException {
         if (!hasAccount(user)) {
             Account account = new Account(user, initialBalance);
             accountDao.create(account);
         } else {
+            logger.severe("Error creating Account!");
+        }
+    }
+
+    public void updateAccount(User user, double newBalance) throws SQLException {
+        if (hasAccount(user)) {
             // If account exists, update the balance
             Account existingAccount = getAccountByUser(user);
-            existingAccount.setBalance(initialBalance);
+            existingAccount.setBalance(newBalance);
             accountDao.update(existingAccount);
+        } else {
+            logger.severe("Error updating account!");
         }
     }
 

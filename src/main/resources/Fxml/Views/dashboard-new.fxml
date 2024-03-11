@@ -5,93 +5,78 @@
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0"
-            prefWidth="1000.0" styleClass="view-pane" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cyx.budgetbuddy.Controllers.DashboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1000.0" styleClass="view-pane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cyx.budgetbuddy.Controllers.DashboardController">
    <stylesheets>
-      <URL value="@../../Css/app.css"/>
-      <URL value="@../../Css/view.css"/>
+      <URL value="@../../Css/app.css" />
+      <URL value="@../../Css/view.css" />
    </stylesheets>
    <padding>
-      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
    </padding>
-   <HBox alignment="CENTER" layoutX="50.0" layoutY="24.0" prefHeight="200.0" prefWidth="900.0" spacing="10.0"
-         AnchorPane.topAnchor="0.0">
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0"
-            style="-fx-background-color: #DAFF01; -fx-background-radius: 20;">
+   <HBox alignment="CENTER" layoutX="50.0" layoutY="24.0" prefHeight="200.0" prefWidth="900.0" spacing="10.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: #DAFF01; -fx-background-radius: 20;">
          <Label text="Total Balance">
             <font>
-               <Font name="Urbanist Bold" size="24.0"/>
+               <Font name="Urbanist Bold" size="24.0" />
             </font>
          </Label>
          <Label fx:id="accountBalance" text="₦60,000.00">
             <font>
-               <Font name="Urbanist Bold" size="36.0"/>
+               <Font name="Urbanist Bold" size="36.0" />
             </font>
          </Label>
-         <Button fx:id="editBalance" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0"
-                 style="-fx-background-radius: 20; -fx-background-color: black;" text="Edit" textFill="#fffefe">
+         <Button fx:id="editBalance" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" style="-fx-background-radius: 20; -fx-background-color: black;" text="Edit" textFill="#fffefe">
             <VBox.margin>
-               <Insets top="20.0"/>
+               <Insets top="20.0" />
             </VBox.margin>
             <font>
-               <Font name="Urbanist Bold" size="14.0"/>
+               <Font name="Urbanist Bold" size="14.0" />
             </font>
          </Button>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0"
-            style="-fx-background-color: white; -fx-background-radius: 20;">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: white; -fx-background-radius: 20;">
          <Label text="Budget">
             <font>
-               <Font name="Urbanist Bold" size="24.0"/>
+               <Font name="Urbanist Bold" size="24.0" />
             </font>
          </Label>
          <Label fx:id="budgetAmount" text="₦00.00">
             <font>
-               <Font name="Urbanist Bold" size="36.0"/>
+               <Font name="Urbanist Bold" size="36.0" />
             </font>
          </Label>
-         <Button fx:id="editBudget" mnemonicParsing="false" prefWidth="100.0"
-                 style="-fx-background-radius: 20; -fx-background-color: black;" text="Edit" textFill="WHITE">
+         <Button fx:id="editBudget" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-radius: 20; -fx-background-color: black;" text="Edit" textFill="WHITE">
             <VBox.margin>
-               <Insets top="20.0"/>
+               <Insets top="20.0" />
             </VBox.margin>
             <font>
-               <Font name="Urbanist Bold" size="14.0"/>
+               <Font name="Urbanist Bold" size="14.0" />
             </font>
          </Button>
       </VBox>
    </HBox>
-   <HBox layoutX="20.0" layoutY="337.0" prefHeight="360.0" prefWidth="960.0" spacing="16.0"
-         AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+   <HBox layoutX="20.0" layoutY="337.0" prefHeight="360.0" prefWidth="960.0" spacing="16.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
       <VBox prefHeight="200.0" prefWidth="642.0">
          <Label text="Recent Transactions" textFill="#989696">
             <font>
-               <Font name="Urbanist Bold" size="24.0"/>
+               <Font name="Urbanist Bold" size="24.0" />
             </font>
          </Label>
-         <TableView prefHeight="331.0" prefWidth="642.0"
-                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-fill: white;">
-            <columns>
-               <TableColumn prefWidth="75.0" text="C1"/>
-               <TableColumn prefWidth="75.0" text="C2"/>
-            </columns>
-         </TableView>
+         <TableView prefHeight="331.0" prefWidth="642.0" stylesheets="@../../Css/tables.css" />
       </VBox>
       <VBox prefHeight="200.0" prefWidth="322.0">
          <Label text="Spending Summary" textFill="#989696">
             <font>
-               <Font name="Urbanist Bold" size="24.0"/>
+               <Font name="Urbanist Bold" size="24.0" />
             </font>
          </Label>
-         <PieChart/>
+         <PieChart />
       </VBox>
    </HBox>
 </AnchorPane>

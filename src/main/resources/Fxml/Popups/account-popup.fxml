@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<DialogPane prefHeight="200.0" prefWidth="289.0" styleClass="root-pane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<DialogPane prefHeight="200.0" prefWidth="289.0" styleClass="root-pane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cyx.budgetbuddy.Controllers.AccountPopupController">
    <padding>
       <Insets left="16.0" right="16.0" top="16.0" />
    </padding>

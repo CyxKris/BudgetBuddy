@@ -1,5 +1,5 @@
-DialogPane {
-    -fx-background-radius: 20;
+.dialog-pane {
+    -fx-background-radius: 16; /* Adjust the value to control the roundness of the corners */
 }
 
 DialogPane Label {

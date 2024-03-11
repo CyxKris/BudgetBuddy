@@ -46,7 +46,7 @@ public class AppView extends BorderPane {
         // Setting the account balance for the user if account doesn't already exist
         AccountDao accountDao = new AccountDao();
         if (!accountDao.hasAccount(user)) {
-            accountDao.createOrUpdateAccount(user, 00.00);
+            accountDao.createAccount(user, 00.00);
         }
 
         // Setting the budget balance for the user if budget doesn't already exist

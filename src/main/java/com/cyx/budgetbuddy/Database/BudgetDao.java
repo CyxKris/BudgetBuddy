@@ -1,13 +1,9 @@
 package com.cyx.budgetbuddy.Database;
 
-import com.cyx.budgetbuddy.Models.Account;
 import com.cyx.budgetbuddy.Models.Budget;
 import com.cyx.budgetbuddy.Models.User;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
-import com.j256.ormlite.jdbc.JdbcConnectionSource;
-import com.j256.ormlite.support.ConnectionSource;
-import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -34,12 +30,14 @@ public class BudgetDao {
         budgetDao.create(budget);
     }
 
-    public void updateBudget(Budget existingBudget, Date startDate, Date endDate, double budgetAmount) throws SQLException {
-        existingBudget.setStartDate(startDate);
-        existingBudget.setEndDate(endDate);
-        existingBudget.setBudgetAmount(budgetAmount);
+    public void updateBudget(User user, Date startDate, Date endDate, double budgetAmount) throws SQLException {
+        Budget budget = getBudgetByUser(user);
+
+        budget.setStartDate(startDate);
+        budget.setEndDate(endDate);
+        budget.setBudgetAmount(budgetAmount);
         // Assuming the remaining amount logic is handled elsewhere or not needed here
-        budgetDao.update(existingBudget);
+        budgetDao.update(budget);
     }
 
 

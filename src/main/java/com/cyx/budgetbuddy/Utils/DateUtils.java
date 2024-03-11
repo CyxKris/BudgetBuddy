@@ -1,4 +1,4 @@
-package com.cyx.budgetbuddy.Models;
+package com.cyx.budgetbuddy.Utils;
 
 import java.time.LocalDate;
 import java.time.ZoneId;

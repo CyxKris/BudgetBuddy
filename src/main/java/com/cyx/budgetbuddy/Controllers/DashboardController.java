@@ -4,6 +4,7 @@ import com.cyx.budgetbuddy.Database.AccountDao;
 import com.cyx.budgetbuddy.Database.BudgetDao;
 import com.cyx.budgetbuddy.Models.Account;
 import com.cyx.budgetbuddy.Models.Budget;
+import com.cyx.budgetbuddy.Utils.CurrencyFormatUtils;
 import com.cyx.budgetbuddy.Views.AppView;
 import com.cyx.budgetbuddy.Views.DialogFactory;
 import javafx.fxml.FXML;
@@ -44,8 +45,8 @@ public class DashboardController implements Initializable {
 
             Budget userBudget = budgetDao.getBudgetByUser(AppView.getUser());
 
-            budgetAmount.setText("₦" + userBudget.getBudgetAmount());
-            editBudget.setOnAction(event -> DialogFactory.showBudgetDialog(userBudget));
+            budgetAmount.setText(CurrencyFormatUtils.formatCurrency(userBudget.getBudgetAmount()));
+            editBudget.setOnAction(event -> DialogFactory.showDialogBudget(userBudget));
 
 
             // HANDLING THE ACCOUNT BALANCE AMOUNT AND EDITING ACTION
@@ -53,7 +54,7 @@ public class DashboardController implements Initializable {
 
             Account userAccount = accountDao.getAccountByUser(AppView.getUser());
 
-            accountBalance.setText("₦" + userAccount.getBalance());
+            accountBalance.setText(CurrencyFormatUtils.formatCurrency(userAccount.getBalance()));
             editBalance.setOnAction(event -> DialogFactory.showAccountDialog(userAccount));
         } catch (SQLException e) {
             logger.severe("Error loading budgetDao");

@@ -56,10 +56,6 @@ public class Budget {
 
     // Getters and Setters
 
-    public UUID getBudgetId() {
-        return budgetId;
-    }
-
     public User getUser() {
         return user;
     }

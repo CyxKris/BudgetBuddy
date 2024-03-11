@@ -14,6 +14,10 @@ import java.util.logging.Logger;
  * Utility class for managing views and scenes in the JavaFX application.
  */
 public class ViewFactory {
+    // The stage of the application
+    // Obtain the main stage instance
+    private static Stage stage = MainStage.getInstance();
+
     // Logger for handling logging messages
     private static final Logger logger = Logger.getLogger(ViewFactory.class.getName());
 
@@ -23,8 +27,7 @@ public class ViewFactory {
      * @param root The root node to set in the scene
      */
     private static void setAndShowStage(Parent root) {
-        // Obtain the main stage instance
-        Stage stage = MainStage.getInstance();
+
         // Create a new scene with the provided root
         Scene scene = new Scene(root);
         // Set the scene in the main stage
@@ -135,5 +138,9 @@ public class ViewFactory {
         }
         // Return the root node of the loaded dashboard view
         return root;
+    }
+
+    public static Stage getStage() {
+        return stage;
     }
 }

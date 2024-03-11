@@ -19,4 +19,5 @@ module com.cyx.budgetbuddy {
 
     opens com.cyx.budgetbuddy.Models to ormlite.jdbc;
     exports com.cyx.budgetbuddy;
+    opens com.cyx.budgetbuddy.Utils to ormlite.jdbc;
 }
