@@ -26,7 +26,7 @@ public class BudgetDao {
 
     public void createBudget(User user, Date startDate, Date endDate, double budgetAmount) throws SQLException {
         Budget budget = new Budget(user, startDate, endDate, budgetAmount);
-        budget.setRemainingAmount(budgetAmount); // Set remaining amount to total budget initially
+        budget.setAmountUsed(0.0); // Set amount used to 0 initially
         budgetDao.create(budget);
     }
 
@@ -39,17 +39,6 @@ public class BudgetDao {
         // Assuming the remaining amount logic is handled elsewhere or not needed here
         budgetDao.update(budget);
     }
-
-//    public void updateBudget(User user, Date startDate, Date endDate, double budgetAmount, double remainingAmount) throws SQLException {
-//        Budget budget = getBudgetByUser(user);
-//
-//        budget.setStartDate(startDate);
-//        budget.setEndDate(endDate);
-//        budget.setBudgetAmount(budgetAmount);
-//        budget.setRemainingAmount(remainingAmount);
-//
-//        budgetDao.update(budget);
-//    }
 
 
     public boolean hasBudget(User user) throws SQLException {

@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;feat: Finished the transaction popup">
+    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;feat: Setup the base for the transaction table">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/TransactionsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/TransactionsViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/TransactionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/TransactionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Models/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Models/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/ViewFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/TransactionPopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/TransactionPopupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/BudgetDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/BudgetDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/DatabaseSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/DatabaseSetup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Models/Budget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Models/Budget.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -357,7 +358,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710190217787</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="&#10;feat: Setup the base for the transaction table">
+      <option name="closed" value="true" />
+      <created>1710237141810</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1710237141810</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,6 +431,7 @@
     <MESSAGE value="&#10;feat: Began work on the transactions popup" />
     <MESSAGE value="&#10;feat: Finished the budget and account popup features" />
     <MESSAGE value="&#10;feat: Finished the transaction popup" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;feat: Finished the transaction popup" />
+    <MESSAGE value="&#10;feat: Setup the base for the transaction table" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;feat: Setup the base for the transaction table" />
   </component>
 </project>

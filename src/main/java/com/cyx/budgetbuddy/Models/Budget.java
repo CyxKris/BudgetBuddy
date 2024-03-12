@@ -28,7 +28,7 @@ public class Budget {
     private double budgetAmount;
 
     @DatabaseField(canBeNull = false)
-    private double remainingAmount;
+    private double amountUsed;
 
     // Constructors, Getters, and Setters
 
@@ -88,11 +88,11 @@ public class Budget {
         this.budgetAmount = budgetAmount;
     }
 
-    public double getRemainingAmount() {
-        return remainingAmount;
+    public double getAmountUsed() {
+        return amountUsed;
     }
 
-    public void setRemainingAmount(double remainingAmount) {
-        this.remainingAmount = remainingAmount;
+    public void setAmountUsed(double amount) {
+        this.amountUsed = amount;
     }
 }

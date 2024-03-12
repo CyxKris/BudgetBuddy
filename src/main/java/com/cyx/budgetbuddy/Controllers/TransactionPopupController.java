@@ -1,6 +1,5 @@
 package com.cyx.budgetbuddy.Controllers;
 
-import com.cyx.budgetbuddy.App;
 import com.cyx.budgetbuddy.Database.AccountDao;
 import com.cyx.budgetbuddy.Database.BudgetDao;
 import com.cyx.budgetbuddy.Database.TransactionDao;
@@ -113,10 +112,10 @@ public class TransactionPopupController implements Initializable {
             accountDao.updateAccount(user, accountDao.getAccountByUser(user).getBalance() - Double.parseDouble(transactionAmount.getText()));
         }
 
-        // Update remaining budget if applicable
+        // Update amount used in budget
         Budget budget = budgetDao.getBudgetByUser(user);
         if (budget != null && category.equals("Expense")) {
-            budget.setRemainingAmount(budget.getRemainingAmount() - Double.parseDouble(transactionAmount.getText()));
+            budget.setAmountUsed(budget.getAmountUsed() + Double.parseDouble(transactionAmount.getText()));
             budgetDao.updateBudget(user, budget.getStartDate(), budget.getEndDate(), budget.getBudgetAmount());
         }
 
