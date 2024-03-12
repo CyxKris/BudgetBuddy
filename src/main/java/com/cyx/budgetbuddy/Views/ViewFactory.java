@@ -95,7 +95,7 @@ public class ViewFactory {
             root = FXMLLoader.load(Objects.requireNonNull(ViewFactory.class.getResource("/Fxml/Views/transactions-view.fxml")));
         } catch (IOException e) {
             // Log any errors that occur during loading
-            logger.severe("An error occurred: " + e.getMessage());
+            logger.severe("An error occurred while loading transactions view: " + e.getMessage());
             logger.severe("Stack trace: " + e);
         }
         // Return the root node of the loaded transactions view
@@ -114,7 +114,7 @@ public class ViewFactory {
             root = FXMLLoader.load(Objects.requireNonNull(ViewFactory.class.getResource("/Fxml/Views/settings-view.fxml")));
         } catch (IOException e) {
             // Log any errors that occur during loading
-            logger.severe("An error occurred: " + e.getMessage());
+            logger.severe("An error occurred while loading settings view: " + e.getMessage());
             logger.severe("Stack trace: " + e);
         }
         // Return the root node of the loaded settings view
@@ -133,7 +133,7 @@ public class ViewFactory {
             root = FXMLLoader.load(Objects.requireNonNull(ViewFactory.class.getResource("/Fxml/Views/dashboard-new.fxml")));
         } catch (IOException e) {
             // Log any errors that occur during loading
-            logger.severe("An error occurred: " + e.getMessage());
+            logger.severe("An error occurred while loading dashboard view: " + e.getMessage());
             logger.severe("Stack trace: " + e);
         }
         // Return the root node of the loaded dashboard view

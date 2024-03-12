@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;feat: Finished the transaction popup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/TransactionPopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/TransactionPopupController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/TransactionsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/TransactionsViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/BudgetDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/BudgetDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/TransactionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/TransactionDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Models/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Models/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/ViewFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +32,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

@@ -6,7 +6,6 @@ import com.cyx.budgetbuddy.Models.Transaction;
 import com.cyx.budgetbuddy.Models.User;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 import java.sql.SQLException;
@@ -79,13 +78,15 @@ public class TransactionDao {
             // Fetch the updated list of transactions from the database
             List<Transaction> transactions = getAllTransactions();
 
-            TableView<?> transactionsTable = TransactionsViewController.getTransactionsTable();
+            TransactionsViewController transactionsViewController = new TransactionsViewController();
+
+            TableView<Transaction> transactionsTable = transactionsViewController.getTransactionsTable();
 
             // Clear the existing items in the transactions table
             transactionsTable.getItems().clear();
 
             // Add the updated list of transactions to the table
-//            transactionsTable.getItems().addAll(transactions);
+            transactionsTable.getItems().addAll(transactions);
         } catch (SQLException e) {
             // Handle any exceptions
             logger.severe("Error updating transaction table: " + e.getMessage());
