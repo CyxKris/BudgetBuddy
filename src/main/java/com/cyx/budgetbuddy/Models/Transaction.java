@@ -1,8 +1,10 @@
 package com.cyx.budgetbuddy.Models;
 
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.UUID;
 
@@ -14,6 +16,9 @@ public class Transaction {
 
     @DatabaseField(id = true)
     private UUID transactionId;
+
+    @DatabaseField(dataType = DataType.TIME_STAMP)
+    private Timestamp creationTime;
 
     @DatabaseField(foreign = true, columnName = "userId", foreignAutoRefresh = true, canBeNull = false)
     private User user;
@@ -57,6 +62,7 @@ public class Transaction {
      */
     public Transaction(User user, Budget budget, Account account, double amount, Date transactionDate, String category, String description) {
         this.transactionId = UUID.randomUUID();
+        this.creationTime = new Timestamp(System.currentTimeMillis()); // Set current timestamp
         this.user = user;
         this.budget = budget;
         this.account = account;

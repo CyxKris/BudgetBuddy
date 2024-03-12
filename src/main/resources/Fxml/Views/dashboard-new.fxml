@@ -68,7 +68,7 @@
                <Font name="Urbanist Bold" size="24.0" />
             </font>
          </Label>
-         <TableView prefHeight="331.0" prefWidth="642.0" stylesheets="@../../Css/tables.css" />
+         <TableView fx:id="recentTransactions" prefHeight="331.0" prefWidth="642.0" stylesheets="@../../Css/tables.css" />
       </VBox>
       <VBox prefHeight="200.0" prefWidth="322.0">
          <Label text="Spending Summary" textFill="#989696">

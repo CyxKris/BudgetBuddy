@@ -5,6 +5,7 @@ import com.cyx.budgetbuddy.Models.Transaction;
 import com.cyx.budgetbuddy.Models.User;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.stmt.QueryBuilder;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -60,15 +61,27 @@ public class TransactionDao {
         return transactionDao.queryBuilder().where().eq("userId", user).queryForFirst();
     }
 
-    public List<Transaction> getAllTransactions() throws SQLException {
-        return transactionDao.queryForAll();
+//    public List<Transaction> getAllTransactions() throws SQLException {
+//        return transactionDao.queryForAll();
+//    }
+
+    public List<Transaction> getAllTransactions(User user) throws SQLException {
+        QueryBuilder<Transaction, UUID> queryBuilder = transactionDao.queryBuilder();
+        queryBuilder.where().eq("userId", user);
+        // Add any other conditions if needed
+
+        return queryBuilder.query();
     }
 
-    public List<Transaction> getRecentTransactions(int limit) throws SQLException {
-        return transactionDao.queryBuilder()
-                .orderBy("transactionDate", false) // Sort by transactionDate in descending order
-                .limit((long) limit) // Limit the number of results
-                .query(); // Execute the query
+
+    public List<Transaction> getRecentTransactions(User user, int limit) throws SQLException {
+        QueryBuilder<Transaction, UUID> queryBuilder = transactionDao.queryBuilder();
+        queryBuilder.where().eq("userId", user); // Filter transactions by user ID
+        queryBuilder.orderBy("creationTime", false); // Sort by creationTime in descending order
+        queryBuilder.limit((long) limit); // Limit the number of results
+
+        return queryBuilder.query(); // Execute the query
     }
+
 
 }

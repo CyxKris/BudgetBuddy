@@ -2,6 +2,7 @@ package com.cyx.budgetbuddy.Controllers;
 
 import com.cyx.budgetbuddy.Database.TransactionDao;
 import com.cyx.budgetbuddy.Models.Transaction;
+import com.cyx.budgetbuddy.Views.AppView;
 import com.cyx.budgetbuddy.Views.DialogFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -62,7 +63,7 @@ public class TransactionsViewController implements Initializable {
         transactionsTable.getItems().clear();
 
         // Add the updated list of transactions to the table
-        transactionsTable.getItems().addAll(transactionDao.getAllTransactions());
+        transactionsTable.getItems().addAll(transactionDao.getAllTransactions(AppView.getUser()));
     }
 
     private void populateTransactionsTable() throws SQLException {
@@ -78,6 +79,7 @@ public class TransactionsViewController implements Initializable {
         transactionDate.setCellValueFactory(new PropertyValueFactory<>("transactionDate"));
         amount.setCellValueFactory(new PropertyValueFactory<>("amount"));
 
+
         List<TableColumn<Transaction, ?>> columns = new ArrayList<>();
         columns.add(categoryColumn);
         columns.add(descriptionColumn);
@@ -86,10 +88,8 @@ public class TransactionsViewController implements Initializable {
 
         transactionsTable.getColumns().addAll(columns);
 
-//        transactionsTable.getColumns().addAll(categoryColumn, descriptionColumn, transactionDate, amount);
-
         // populating the rows
-        transactionsTable.getItems().addAll(transactionDao.getAllTransactions());
+        transactionsTable.getItems().addAll(transactionDao.getAllTransactions(AppView.getUser()));
     }
 
     public TableView<Transaction> getTransactionsTable() {
