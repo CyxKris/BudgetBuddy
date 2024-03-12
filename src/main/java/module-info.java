@@ -17,7 +17,7 @@ module com.cyx.budgetbuddy {
     opens com.cyx.budgetbuddy.Controllers to javafx.fxml, ormlite.jdbc;
     opens com.cyx.budgetbuddy.Views to javafx.fxml, ormlite.jdbc, javafx.graphics, javafx.base;
 
-    opens com.cyx.budgetbuddy.Models to ormlite.jdbc;
+    opens com.cyx.budgetbuddy.Models to ormlite.jdbc, javafx.base;
     exports com.cyx.budgetbuddy;
     opens com.cyx.budgetbuddy.Utils to ormlite.jdbc;
 }

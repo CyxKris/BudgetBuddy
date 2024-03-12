@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1000.0" styleClass="view-pane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cyx.budgetbuddy.Controllers.TransactionsViewController">
@@ -24,7 +25,12 @@
         </padding>
         <VBox prefHeight="87.0" prefWidth="960.0" spacing="20.0">
             <Label styleClass="section-title" text="Transactions" />
-            <Button fx:id="addTransactionButton" mnemonicParsing="false" text="Add New" />
+         <HBox spacing="16.0">
+            <children>
+                  <Button fx:id="addTransactionButton" mnemonicParsing="false" text="Add New" />
+               <Button fx:id="refreshButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Refresh" />
+            </children>
+         </HBox>
         </VBox>
         <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
             <TableView fx:id="transactionsTable" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />

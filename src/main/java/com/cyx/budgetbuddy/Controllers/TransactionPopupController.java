@@ -100,16 +100,16 @@ public class TransactionPopupController implements Initializable {
         java.util.Date transactionDate = Date.valueOf(date.getValue());
         String category = categoryChoiceBox.getValue();
 
-
-        transactionDao.createTransaction(AppView.getUser(), Double.parseDouble(transactionAmount.getText()), transactionDate, category, descriptionField.getText());
-
         User user = AppView.getUser();
 
         // Add or deduct transaction amount from account balance
+        System.out.println("Category: " + category);
         if (category.equals("Income")) {
             accountDao.updateAccount(user, accountDao.getAccountByUser(user).getBalance() + Double.parseDouble(transactionAmount.getText()));
+            System.out.println("Account Balance after income: " + accountDao.getAccountByUser(user).getBalance());
         } else if (category.equals("Expense")) {
             accountDao.updateAccount(user, accountDao.getAccountByUser(user).getBalance() - Double.parseDouble(transactionAmount.getText()));
+            System.out.println("Account Balance after expense: " + accountDao.getAccountByUser(user).getBalance());
         }
 
         // Update amount used in budget
@@ -117,7 +117,11 @@ public class TransactionPopupController implements Initializable {
         if (budget != null && category.equals("Expense")) {
             budget.setAmountUsed(budget.getAmountUsed() + Double.parseDouble(transactionAmount.getText()));
             budgetDao.updateBudget(user, budget.getStartDate(), budget.getEndDate(), budget.getBudgetAmount());
+            System.out.println("Budget amount used after expense: " + budget.getAmountUsed());
         }
+
+        // creating the transaction
+        transactionDao.createTransaction(AppView.getUser(), Double.parseDouble(transactionAmount.getText()), transactionDate, category, descriptionField.getText());
 
         closeDialog(event);
     }

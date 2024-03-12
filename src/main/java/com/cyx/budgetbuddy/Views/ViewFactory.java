@@ -1,5 +1,6 @@
 package com.cyx.budgetbuddy.Views;
 
+import com.cyx.budgetbuddy.Controllers.TransactionsViewController;
 import com.cyx.budgetbuddy.Models.User;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -92,7 +93,15 @@ public class ViewFactory {
         Parent root = null;
         try {
             // Load the transactions view from FXML
-            root = FXMLLoader.load(Objects.requireNonNull(ViewFactory.class.getResource("/Fxml/Views/transactions-view.fxml")));
+            FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(ViewFactory.class.getResource("/Fxml/Views/transactions-view.fxml")));
+            root = loader.load();
+
+            // Get the controller instance
+            TransactionsViewController controller = loader.getController();
+
+            // Pass the reference of the transactionsTable to the controller
+            controller.setTransactionsTable(controller.getTransactionsTable());
+
         } catch (IOException e) {
             // Log any errors that occur during loading
             logger.severe("An error occurred while loading transactions view: " + e.getMessage());
