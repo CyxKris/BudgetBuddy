@@ -35,16 +35,16 @@ public class DatabaseSetup {
                 // Get the connection source from the database connector
                 ConnectionSource connectionSource = DatabaseConnector.getConnectionSource();
 
-                // dropping the transaction table
-                TableUtils.dropTable(connectionSource, Transaction.class, true);
-                TableUtils.dropTable(connectionSource, Account.class, true);
-                TableUtils.dropTable(connectionSource, Budget.class, true);
+                // dropping the transaction, account, and budget tables
+//                TableUtils.dropTable(connectionSource, Transaction.class, true);
+//                TableUtils.dropTable(connectionSource, Account.class, true);
+//                TableUtils.dropTable(connectionSource, Budget.class, true);
 
                 // Create tables if they do not exist
-//                TableUtils.createTableIfNotExists(connectionSource, User.class);
-//                TableUtils.createTableIfNotExists(connectionSource, Account.class);
-//                TableUtils.createTableIfNotExists(connectionSource, Budget.class);
-//                TableUtils.createTableIfNotExists(connectionSource, Transaction.class);
+                TableUtils.createTableIfNotExists(connectionSource, User.class);
+                TableUtils.createTableIfNotExists(connectionSource, Account.class);
+                TableUtils.createTableIfNotExists(connectionSource, Budget.class);
+                TableUtils.createTableIfNotExists(connectionSource, Transaction.class);
 
                 // Create the guest user
                 UserDao userDao = new UserDao();
