@@ -20,6 +20,7 @@ public class DialogFactory {
 
     // Creating BudgetDao object
     static BudgetDao budgetDao;
+    public static Transaction selectedTransaction;
 
     static {
         try {
@@ -57,6 +58,8 @@ public class DialogFactory {
         try {
             FXMLLoader loader = new FXMLLoader(DialogFactory.class.getResource("/Fxml/Popups/new-transactions-popup.fxml"));
 
+            selectedTransaction = transaction;
+
             setAndShowDialog(loader);
         } catch (IOException e) {
             logger.severe("Error showing the edit transactions dialog: " + e);
@@ -87,15 +90,7 @@ public class DialogFactory {
         dialogStage.showAndWait();
     }
 
-    private static void setAndShowDialog(Parent root) {
-        // Create a new stage for the dialog
-        Stage dialogStage = new Stage();
-        dialogStage.initOwner(ViewFactory.getStage());
-        dialogStage.initStyle(StageStyle.UNDECORATED);
-        dialogStage.initModality(Modality.APPLICATION_MODAL);
-        dialogStage.setScene(new Scene(root));
-
-        // Show the dialog
-        dialogStage.showAndWait();
+    public static Transaction getSelectedTransaction() {
+        return selectedTransaction;
     }
 }

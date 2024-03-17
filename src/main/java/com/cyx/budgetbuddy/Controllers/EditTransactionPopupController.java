@@ -3,11 +3,14 @@ package com.cyx.budgetbuddy.Controllers;
 import com.cyx.budgetbuddy.Database.AccountDao;
 import com.cyx.budgetbuddy.Database.BudgetDao;
 import com.cyx.budgetbuddy.Database.TransactionDao;
+import com.cyx.budgetbuddy.Models.Account;
 import com.cyx.budgetbuddy.Models.Budget;
 import com.cyx.budgetbuddy.Models.Transaction;
 import com.cyx.budgetbuddy.Models.User;
+import com.cyx.budgetbuddy.Utils.DateUtils;
 import com.cyx.budgetbuddy.Utils.NumericTextFieldUtil;
 import com.cyx.budgetbuddy.Views.AppView;
+import com.cyx.budgetbuddy.Views.DialogFactory;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
@@ -44,8 +47,7 @@ public class EditTransactionPopupController implements Initializable {
     private Button saveButton;
 
     private Double initialAmount;
-
-    private Transaction transaction;
+    private String initialCategory;
 
     TransactionDao transactionDao = new TransactionDao();
     BudgetDao budgetDao = new BudgetDao();
@@ -73,6 +75,8 @@ public class EditTransactionPopupController implements Initializable {
             }
         });
 
+        populateFields();
+
         BooleanBinding fieldsEmpty = Bindings.createBooleanBinding(() ->   transactionAmount.getText().trim().isEmpty() ||
             descriptionField.getText().trim().isEmpty() ||
             date.getValue() == null ||
@@ -97,31 +101,88 @@ public class EditTransactionPopupController implements Initializable {
 
     }
 
+    private void populateFields() {
+        Transaction transaction = DialogFactory.getSelectedTransaction();
+
+        initialAmount = transaction.getAmount();
+        initialCategory = transaction.getCategory();
+
+        transactionAmount.setText(String.valueOf(transaction.getAmount()));
+        categoryChoiceBox.setValue(transaction.getCategory());
+        date.setValue(DateUtils.convertToLocalDate(transaction.getTransactionDate()));
+        descriptionField.setText(transaction.getDescription());
+    }
+
 
     private void saveData(ActionEvent event) throws SQLException {
 
         java.util.Date transactionDate = Date.valueOf(date.getValue());
         String category = categoryChoiceBox.getValue();
+        String description = descriptionField.getText();
+        double newTransactionAmount = Double.parseDouble(transactionAmount.getText());
 
         User user = AppView.getUser();
+        Account userAccount = accountDao.getAccountByUser(user);
+        Budget userBudget = budgetDao.getBudgetByUser(user);
 
-        // Add or deduct transaction amount from account balance
-        if (category.equals("Income")) {
-            accountDao.updateAccount(user, accountDao.getAccountByUser(user).getBalance() + Double.parseDouble(transactionAmount.getText()));
-        } else if (category.equals("Expense")) {
-            accountDao.updateAccount(user, accountDao.getAccountByUser(user).getBalance() - Double.parseDouble(transactionAmount.getText()));
+        // Handle changes in account balance based on transaction category
+        if (initialCategory.equals("Income")) {
+            if (category.equals("Expense")) {
+                // Deduct initial amount from account balance if category changed from income to expense
+                userAccount.setBalance(userAccount.getBalance() - initialAmount);
+
+                // Update the user's amount used in the budget table
+                double amountDifference = newTransactionAmount - initialAmount;
+                userBudget.setAmountUsed(userBudget.getAmountUsed() + amountDifference);
+                budgetDao.updateBudgetAmountUsed(user, userBudget.getAmountUsed());
+                budgetDao.updateBudget(user, userBudget.getStartDate(), userBudget.getEndDate(), userBudget.getBudgetAmount());
+            } else if (category.equals("Income")) {
+                // Add initial amount back to account balance if category remains as income
+                userAccount.setBalance(userAccount.getBalance() + initialAmount);
+            }
+        } else if (initialCategory.equals("Expense")) {
+            if (category.equals("Income")) {
+                if (initialAmount > newTransactionAmount) {
+                    // Subtract new amount from the account balance if income decreases
+                    userAccount.setBalance(userAccount.getBalance() - newTransactionAmount);
+
+                    // Correct the amount used in the budget table
+                    // Update the user's amount used in the budget table
+                    double amountDifference = initialAmount - newTransactionAmount;
+                    userBudget.setAmountUsed(userBudget.getAmountUsed() - amountDifference);
+                    budgetDao.updateBudgetAmountUsed(user, userBudget.getAmountUsed());
+
+                } else if (initialAmount < newTransactionAmount) {
+                    // Add initial amount back to account balance if category changed from expense to income
+                    userAccount.setBalance(userAccount.getBalance() + initialAmount);
+
+                    userBudget.setAmountUsed(userBudget.getAmountUsed() - initialAmount);
+                    budgetDao.updateBudgetAmountUsed(user, userBudget.getAmountUsed());
+                } else {
+                    // If the two amounts are equal, do nothing
+                    userAccount.setBalance(userAccount.getBalance());
+                }
+
+            } else if (category.equals("Expense")) {
+                if (initialAmount > newTransactionAmount) {
+                    // Adjust account balance if category remains as expense and the amount changes
+                    double difference = initialAmount - newTransactionAmount;
+                    userAccount.setBalance(userAccount.getBalance() + difference);
+
+                    userBudget.setAmountUsed(userBudget.getAmountUsed() - difference);
+                    budgetDao.updateBudgetAmountUsed(user, userBudget.getAmountUsed());
+                }
+
+            }
         }
 
-        // Update amount used in budget
-        Budget budget = budgetDao.getBudgetByUser(user);
-        if (budget != null && category.equals("Expense")) {
-            budget.setAmountUsed(budget.getAmountUsed() + Double.parseDouble(transactionAmount.getText()));
-            budgetDao.updateBudgetAmountUsed(user, budget.getAmountUsed());
-            budgetDao.updateBudget(user, budget.getStartDate(), budget.getEndDate(), budget.getBudgetAmount());
-        }
+        // Update the account balance in the database
+        accountDao.updateAccount(user, userAccount.getBalance());
+        // Update the budget amount used
+        budgetDao.updateBudget(user, userBudget.getStartDate(), userBudget.getEndDate(), userBudget.getBudgetAmount());
 
-        // creating the transaction
-        transactionDao.updateTransaction(AppView.getUser(), Double.parseDouble(transactionAmount.getText()), transactionDate, category, descriptionField.getText());
+        // Update the transaction
+        transactionDao.updateTransaction(DialogFactory.getSelectedTransaction().getTransactionId(), newTransactionAmount, transactionDate, category, description);
 
         closeDialog(event);
     }

@@ -45,16 +45,17 @@ public class TransactionDao {
         transactionDao.create(transaction);
     }
 
-    public void updateTransaction(User user, Double amount, Date transactionDate, String category, String description) throws SQLException {
+    public void updateTransaction(UUID id, Double amount, Date transactionDate, String category, String description) throws SQLException {
 
-//        Transaction transaction = getTransactionById();
-//        transaction.setAmount(amount);
-//        transaction.setTransactionDate(transactionDate);
-//        transaction.setCategory(category);
-//        transaction.setDescription(description);
-//
-//        transactionDao.update(transaction);
+        Transaction transaction = getTransactionById(id);
+        transaction.setAmount(amount);
+        transaction.setTransactionDate(transactionDate);
+        transaction.setCategory(category);
+        transaction.setDescription(description);
+
+        transactionDao.update(transaction);
     }
+
 
     public void deleteTransaction(UUID transactionId) throws SQLException {
         // Get the transaction
@@ -89,15 +90,9 @@ public class TransactionDao {
         }
     }
 
-    public Transaction getTransactionByUser(User user) throws SQLException {
-        return transactionDao.queryBuilder().where().eq("userId", user).queryForFirst();
+    private Transaction getTransactionById(UUID id) throws SQLException {
+        return transactionDao.queryForId(id);
     }
-
-    public Transaction getTransactionById(UUID transactionId) throws SQLException {
-        return transactionDao.queryForId(transactionId);
-    }
-
-//    public Transaction getTransaction;
 
     public List<Transaction> getAllTransactions(User user) throws SQLException {
         QueryBuilder<Transaction, UUID> queryBuilder = transactionDao.queryBuilder();
