@@ -7,51 +7,42 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0"
-            prefWidth="1000.0" styleClass="view-pane" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1000.0" styleClass="view-pane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cyx.budgetbuddy.Controllers.SettingsViewController">
    <stylesheets>
-      <URL value="@../../Css/app.css"/>
-      <URL value="@../../Css/view.css"/>
-      <URL value="@../../Css/settings-view.css"/>
+      <URL value="@../../Css/app.css" />
+      <URL value="@../../Css/view.css" />
+      <URL value="@../../Css/settings-view.css" />
    </stylesheets>
-   <VBox layoutX="450.0" layoutY="220.0" prefHeight="200.0" prefWidth="100.0" spacing="16.0"
-         AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0"
-         AnchorPane.topAnchor="0.0">
-      <Label styleClass="section-title" text="Settings"/>
+   <VBox layoutX="450.0" layoutY="220.0" prefHeight="200.0" prefWidth="100.0" spacing="16.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+      <Label styleClass="section-title" text="Settings" />
       <VBox prefHeight="200.0" prefWidth="100.0" spacing="16.0" VBox.vgrow="ALWAYS">
          <VBox fillWidth="false" spacing="4.0">
             <Label styleClass="settings-heading" text="Data">
                <VBox.margin>
-                  <Insets bottom="10.0"/>
+                  <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <Label prefHeight="30.0" prefWidth="961.0" styleClass="settings-label" text="Export Data as CSV"/>
-            <Label layoutX="10.0" layoutY="79.0" prefHeight="30.0" prefWidth="961.0"
-                   styleClass="settings-label" text="Export Data as Text"/>
+            <Label fx:id="exportDataButton" prefHeight="30.0" prefWidth="961.0" styleClass="settings-label" text="Export Data as CSV" />
          </VBox>
-         <Separator opacity="0.2" prefHeight="0.0" prefWidth="873.0"/>
+         <Separator opacity="0.2" prefHeight="0.0" prefWidth="873.0" />
          <VBox fillWidth="false" layoutX="10.0" layoutY="10.0" spacing="4.0">
             <Label styleClass="settings-heading" text="User Profile">
                <VBox.margin>
-                  <Insets bottom="10.0"/>
+                  <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <Label prefHeight="30.0" prefWidth="961.0" styleClass="settings-label"
-                   text="Change Profile Photo"/>
-            <Label layoutX="10.0" layoutY="79.0" prefHeight="30.0" prefWidth="961.0"
-                   styleClass="settings-label" text="Edit User Data"/>
-            <Label layoutX="10.0" layoutY="97.0" prefHeight="30.0" prefWidth="961.0"
-                   styleClass="settings-label" text="Delete User"/>
+            <Label fx:id="changeProfileButton" prefHeight="30.0" prefWidth="961.0" styleClass="settings-label" text="Change Profile Photo" />
+            <Label fx:id="editUserButton" layoutX="10.0" layoutY="79.0" prefHeight="30.0" prefWidth="961.0" styleClass="settings-label" text="Edit User Data" />
+            <Label fx:id="deleteUserButton" layoutX="10.0" layoutY="97.0" prefHeight="30.0" prefWidth="961.0" styleClass="settings-label" text="Delete User" />
          </VBox>
-         <Separator opacity="0.2" prefWidth="200.0"/>
+         <Separator opacity="0.2" prefWidth="200.0" />
          <VBox fillWidth="false" layoutX="10.0" layoutY="172.0" spacing="4.0">
             <Label styleClass="settings-heading" text="Contact">
                <VBox.margin>
-                  <Insets bottom="10.0"/>
+                  <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <Label prefHeight="30.0" prefWidth="961.0" styleClass="settings-label" text="Send Report"/>
+            <Label fx:id="sendReportButton" prefHeight="30.0" prefWidth="961.0" styleClass="settings-label" text="Send Report" />
          </VBox>
       </VBox>
    </VBox>

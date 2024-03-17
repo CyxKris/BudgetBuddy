@@ -4,11 +4,10 @@ import com.cyx.budgetbuddy.Database.TransactionDao;
 import com.cyx.budgetbuddy.Models.Transaction;
 import com.cyx.budgetbuddy.Views.AppView;
 import com.cyx.budgetbuddy.Views.DialogFactory;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
@@ -41,7 +40,7 @@ public class TransactionsViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        addTransactionButton.setOnAction(event -> DialogFactory.showTransactionDialog());
+        addTransactionButton.setOnAction(event -> DialogFactory.showAddTransactionDialog());
 
         refreshButton.setOnAction(event -> {
             try {
@@ -87,6 +86,68 @@ public class TransactionsViewController implements Initializable {
         columns.add(amount);
 
         transactionsTable.getColumns().addAll(columns);
+
+
+        // Create the context menu
+        ContextMenu rowMenu = new ContextMenu();
+
+        rowMenu.setStyle("""
+                -fx-background-color: #1B1B1B;
+                    -fx-font-size: 16px;
+                    -fx-background-radius: 10;
+                    -fx-padding: 4;""");
+
+        MenuItem deleteItem = new MenuItem("Delete");
+        deleteItem.setStyle("""
+                -fx-font-family: "urbanist-semibold";
+                    -fx-font-weight: 700;
+                    -fx-cursor: hand;
+                    -fx-padding: 2; -fx-text-fill: white;""");
+
+        MenuItem editItem = new MenuItem("Edit");
+        editItem.setStyle("""
+                -fx-font-family: "urbanist-semibold";
+                -fx-font-weight: 700;
+                -fx-cursor: hand;
+                -fx-padding: 2;
+                -fx-text-fill: white;""");
+
+        rowMenu.getItems().addAll(deleteItem, editItem);
+
+        // Add event handlers for the context menu items
+        deleteItem.setOnAction(event -> {
+            Transaction selectedTransaction = transactionsTable.getSelectionModel().getSelectedItem();
+            if (selectedTransaction != null) {
+                try {
+                    transactionDao.deleteTransaction(selectedTransaction.getTransactionId());
+                } catch (SQLException e) {
+                    logger.severe("Error while deleting transaction: " + e);
+                }
+                transactionsTable.getItems().remove(selectedTransaction);
+            }
+        });
+
+        editItem.setOnAction(event -> {
+            Transaction selectedTransaction = transactionsTable.getSelectionModel().getSelectedItem();
+            if (selectedTransaction != null) {
+                // Open a dialog or window to allow the user to edit the transaction
+                // After editing, update the transaction in the database and refresh the table view
+                DialogFactory.showEditTransactionDialog(selectedTransaction);
+            }
+        });
+
+
+        // Set the row factory to apply the context menu
+        transactionsTable.setRowFactory(tv -> {
+            TableRow<Transaction> row = new TableRow<>();
+
+            row.contextMenuProperty().bind(
+                    Bindings.when(row.emptyProperty())
+                            .then((ContextMenu) null)
+                            .otherwise(rowMenu)
+            );
+            return row;
+        });
 
         // populating the rows
         transactionsTable.getItems().addAll(transactionDao.getAllTransactions(AppView.getUser()));

@@ -85,12 +85,6 @@
             <id>gluon-nexus-repository</id>
             <url>https://nexus.gluonhq.com/nexus/content/repositories/releases/</url>
         </repository>
-<!--        <repository>-->
-<!--            <id></id>-->
-<!--            <name></name>-->
-<!--            <url></url>-->
-<!--        </repository>-->
-
     </repositories>
 
     <build>

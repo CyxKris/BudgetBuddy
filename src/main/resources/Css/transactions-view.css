@@ -11,3 +11,31 @@
 .button:hover {
     -fx-background-color: #DAFF01;
 }
+
+/* STYLING THE CONTEXT MENU FOR EACH TRANSACTION ROW */
+ContextMenu {
+    -fx-background-color: #1B1B1B;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+    -fx-background-radius: 20;
+    -fx-padding: 8;
+}
+
+.context-menu .menu-item {
+    -fx-font-family: "urbanist-semibold";
+    -fx-font-weight: 700;
+    -fx-cursor: hand;
+    -fx-padding: 5;
+}
+
+.context-menu .menu-item:hover {
+    -fx-background-color: transparent; /* Override default hover color */
+}
+
+.context-menu .edit:hover {
+    -fx-background-color: #DAFF01;
+}
+
+.context-menu .delete:hover {
+    -fx-background-color: indianred;
+}

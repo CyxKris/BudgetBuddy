@@ -22,10 +22,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
-public class TransactionPopupController implements Initializable {
-
-    @FXML
-    private DialogPane addTransactionPopup;
+public class AddTransactionPopupController implements Initializable {
 
     @FXML
     private TextField transactionAmount;
@@ -50,9 +47,9 @@ public class TransactionPopupController implements Initializable {
     AccountDao accountDao = new AccountDao();
 
     // Logger for handling logging messages
-    private static final Logger logger = Logger.getLogger(TransactionPopupController.class.getName());
+    private static final Logger logger = Logger.getLogger(AddTransactionPopupController.class.getName());
 
-    public TransactionPopupController() throws SQLException {
+    public AddTransactionPopupController() throws SQLException {
     }
 
     @Override
@@ -61,7 +58,7 @@ public class TransactionPopupController implements Initializable {
         // Adding the utilities to ensure only numerical values are accepted in the transactionAmount text field
         NumericTextFieldUtil.addNumericValidation(transactionAmount);
 
-        categoryChoiceBox.getItems().addAll("Income", "Expense", "Subscription");
+        categoryChoiceBox.getItems().addAll("Income", "Expense");
 
         descriptionField.textProperty().addListener((ov, oldValue, newValue) -> {
             if (descriptionField.getText().length() > 225) {
@@ -103,13 +100,10 @@ public class TransactionPopupController implements Initializable {
         User user = AppView.getUser();
 
         // Add or deduct transaction amount from account balance
-        System.out.println("Category: " + category);
         if (category.equals("Income")) {
             accountDao.updateAccount(user, accountDao.getAccountByUser(user).getBalance() + Double.parseDouble(transactionAmount.getText()));
-            System.out.println("Account Balance after income: " + accountDao.getAccountByUser(user).getBalance());
         } else if (category.equals("Expense")) {
             accountDao.updateAccount(user, accountDao.getAccountByUser(user).getBalance() - Double.parseDouble(transactionAmount.getText()));
-            System.out.println("Account Balance after expense: " + accountDao.getAccountByUser(user).getBalance());
         }
 
         // Update amount used in budget
@@ -117,7 +111,6 @@ public class TransactionPopupController implements Initializable {
         if (budget != null && category.equals("Expense")) {
             budget.setAmountUsed(budget.getAmountUsed() + Double.parseDouble(transactionAmount.getText()));
             budgetDao.updateBudget(user, budget.getStartDate(), budget.getEndDate(), budget.getBudgetAmount());
-            System.out.println("Budget amount used after expense: " + budget.getAmountUsed());
         }
 
         // creating the transaction

@@ -1,11 +1,15 @@
 package com.cyx.budgetbuddy.Database;
 
+import com.cyx.budgetbuddy.Models.Account;
+import com.cyx.budgetbuddy.Models.Budget;
+import com.cyx.budgetbuddy.Models.Transaction;
 import com.cyx.budgetbuddy.Models.User;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
 
@@ -90,6 +94,28 @@ public class UserDao {
             logger.severe("Error authenticating user: " + e.getMessage());
             throw e;
         }
+    }
+
+    public void updateUserProfileImage(User user, String filePath) throws SQLException {
+        user.setProfileImagePath(filePath);
+        userDao.update(user);
+    }
+
+    public void deleteUser(User user) throws SQLException {
+
+        AccountDao accountDao = new AccountDao();
+        BudgetDao budgetDao = new BudgetDao();
+        TransactionDao transactionDao = new TransactionDao();
+
+        Account userAccount = accountDao.getAccountByUser(user);
+        Budget userBudget = budgetDao.getBudgetByUser(user);
+        List<Transaction> transactionList = transactionDao.getAllTransactions(user);
+
+        accountDao.deleteAccount(userAccount);
+        budgetDao.deleteBudget(userBudget);
+        transactionDao.deleteTransactions(transactionList);
+
+        userDao.delete(user);
     }
 }
 

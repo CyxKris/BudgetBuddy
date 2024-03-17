@@ -1,18 +1,16 @@
 package com.cyx.budgetbuddy.Views;
 
 import com.cyx.budgetbuddy.Database.BudgetDao;
+import com.cyx.budgetbuddy.Models.Transaction;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.time.ZoneId;
-import java.util.Date;
 import java.util.logging.Logger;
 
 public class DialogFactory {
@@ -55,13 +53,24 @@ public class DialogFactory {
         }
     }
 
-    public static void showTransactionDialog() {
+    public static void showEditTransactionDialog(Transaction transaction) {
+        try {
+            FXMLLoader loader = new FXMLLoader(DialogFactory.class.getResource("/Fxml/Popups/new-transactions-popup.fxml"));
+            System.out.println("Edit Transactions Popup: " + loader);
+
+            setAndShowDialog(loader);
+        } catch (IOException e) {
+            logger.severe("Error showing the edit transactions dialog: " + e);
+        }
+    }
+
+    public static void showAddTransactionDialog() {
         try {
             FXMLLoader loader = new FXMLLoader(DialogFactory.class.getResource("/Fxml/Popups/transactions-popup.fxml"));
 
             setAndShowDialog(loader);
         } catch (IOException e) {
-            logger.severe("Error showing the transactions dialog: " + e);
+            logger.severe("Error showing the add transactions dialog: " + e);
         }
     }
 
@@ -75,16 +84,19 @@ public class DialogFactory {
         dialogStage.initModality(Modality.APPLICATION_MODAL);
         dialogStage.setScene(new Scene(root));
 
-        // Set controller if necessary
-//             AccountPopupController controller = loader.getController();
-
         // Show the dialog
         dialogStage.showAndWait();
     }
 
-    private static Date getDate(DatePicker datePicker) {
-        // Convert LocalDate to Date
+    private static void setAndShowDialog(Parent root) {
+        // Create a new stage for the dialog
+        Stage dialogStage = new Stage();
+        dialogStage.initOwner(ViewFactory.getStage());
+        dialogStage.initStyle(StageStyle.UNDECORATED);
+        dialogStage.initModality(Modality.APPLICATION_MODAL);
+        dialogStage.setScene(new Scene(root));
 
-        return Date.from(datePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+        // Show the dialog
+        dialogStage.showAndWait();
     }
 }

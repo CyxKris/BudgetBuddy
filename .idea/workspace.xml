@@ -4,7 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;fix: Fixed user-specific transaction tables" />
+    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;feat: Began work on delete and edit transaction feature">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/EditTransactionPopupController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/SettingsViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Popups/edit-transaction-popup.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Popups/new-transactions-popup.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/default.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budgetbuddy.db" beforeDir="false" afterPath="$PROJECT_DIR$/budgetbuddy.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/TransactionPopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/AddTransactionPopupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/TransactionsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/TransactionsViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/AccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/AccountDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/BudgetDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/BudgetDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/DatabaseSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/DatabaseSetup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/TransactionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/TransactionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/AppMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/AppMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/DialogFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/DialogFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/popup.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/popup.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/transactions-view.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/transactions-view.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Popups/transactions-popup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Popups/transactions-popup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Views/settings-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/settings-view.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,26 +94,32 @@
     &quot;git-widget-placeholder&quot;: &quot;dialog&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/cyxkr/Documents/Programming/Java/JavaFx/BudgetBuddy/src/main/resources/Fxml/Popups&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/cyxkr/Documents/Programming/Java/JavaFx/BudgetBuddy/src/main/resources/Images&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\cyxkr\Documents\Programming\Java\JavaFx\BudgetBuddy\src\main\resources\Images" />
       <recent name="C:\Users\cyxkr\Documents\Programming\Java\JavaFx\BudgetBuddy\src\main\resources\Fxml\Popups" />
       <recent name="C:\Users\cyxkr\Documents\Programming\Java\JavaFx\BudgetBuddy\src\main\resources\Fxml\Views" />
       <recent name="C:\Users\cyxkr\Documents\Programming\Java\JavaFx\BudgetBuddy\src\main\resources\Fonts" />
-      <recent name="C:\Users\cyxkr\Documents\Programming\Java\JavaFx\BudgetBuddy\src\main\resources\Images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\cyxkr\Documents\Programming\Java\JavaFx\BudgetBuddy\src\main\resources\Fxml\Popups" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.cyx.budgetbuddy.Controllers" />
     </key>
   </component>
   <component name="RunManager" selected="Application.App">
@@ -198,6 +229,11 @@
       <workItem from="1710105523805" duration="4947000" />
       <workItem from="1710153469125" duration="18110000" />
       <workItem from="1710184570077" duration="9949000" />
+      <workItem from="1710321647973" duration="15631000" />
+      <workItem from="1710365529528" duration="594000" />
+      <workItem from="1710412392495" duration="12415000" />
+      <workItem from="1710609272307" duration="5873000" />
+      <workItem from="1710676625363" duration="311000" />
     </task>
     <task id="LOCAL-00001" summary="First commit.">
       <option name="closed" value="true" />
@@ -383,7 +419,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710255541064</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="&#10;feat: Began work on delete and edit transaction feature">
+      <option name="closed" value="true" />
+      <created>1710321910993</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1710321910993</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -452,6 +496,7 @@
     <MESSAGE value="&#10;chore: Updated budget class and table to fit new structure" />
     <MESSAGE value="&#10;fix: Fixed transaction table refresh action" />
     <MESSAGE value="&#10;fix: Fixed user-specific transaction tables" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;fix: Fixed user-specific transaction tables" />
+    <MESSAGE value="&#10;feat: Began work on delete and edit transaction feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;feat: Began work on delete and edit transaction feature" />
   </component>
 </project>

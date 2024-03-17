@@ -49,8 +49,15 @@ public class BudgetDao {
         return budgetDao.queryBuilder().where().eq("userId", user).queryForFirst();
     }
 
-    public Budget getBudget(UUID budgetId) throws SQLException {
-        return budgetDao.queryForId(budgetId);
+    public void updateBudgetAmountUsed (User user, Double amountUsed) throws SQLException {
+        Budget budget = getBudgetByUser(user);
+        budget.setAmountUsed(amountUsed);
+
+        budgetDao.update(budget);
+    }
+
+    public void deleteBudget(Budget budget) throws SQLException {
+        budgetDao.delete(budget);
     }
 
 }

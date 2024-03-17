@@ -16,6 +16,9 @@ public class User {
     @DatabaseField(id = true, dataType = DataType.UUID)
     private UUID userId;
 
+    @DatabaseField(canBeNull = false)
+    private String profileImagePath;
+
     // Username of the user
     @DatabaseField(canBeNull = false)
     private String username;
@@ -41,6 +44,7 @@ public class User {
         this.userId = UUID.randomUUID();
         setUsername(username);
         setPassword(password);
+        this.profileImagePath = "/Images/default.png";
     }
 
     /**
@@ -54,6 +58,7 @@ public class User {
         this.userId = userId;
         this.username = username;
         this.password = password;
+        this.profileImagePath = "/Images/default.png";
     }
 
     /**
@@ -90,12 +95,30 @@ public class User {
     }
 
     /**
+     * Set the profile image path of the user.
+     *
+     * @param profileImagePath the new username to set
+     */
+    public void setProfileImagePath(String profileImagePath) {
+        this.profileImagePath = profileImagePath;
+    }
+
+    /**
      * Get the password of the user.
      *
      * @return the password of the user
      */
     public String getPassword() {
         return password;
+    }
+
+    /**
+     * Get the profile image path of the user
+     *
+     * @return the image path of the user
+     * */
+    public String getProfileImagePath() {
+        return profileImagePath;
     }
 
     /**

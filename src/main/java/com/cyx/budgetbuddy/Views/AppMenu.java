@@ -18,6 +18,7 @@ import java.util.Objects;
  */
 public class AppMenu extends VBox {
 
+    private static ImageView profileImage;
     private String username;
     private final Hyperlink dashboardLink;
     private final Hyperlink transactionsLink;
@@ -95,7 +96,13 @@ public class AppMenu extends VBox {
         profileBox.getStyleClass().add("profile");
 
         // Load and display user profile image
-        ImageView profileImage = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/Images/sample.png"))));
+//        profileImage = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream(AppView.getUser().getProfileImagePath()))));
+        if (AppView.getUser().getProfileImagePath().equals("/Images/default.png")) {
+            profileImage = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream(AppView.getUser().getProfileImagePath()))));
+        } else {
+            profileImage = new ImageView(new Image(AppView.getUser().getProfileImagePath()));
+        }
+
         profileImage.setFitWidth(100);
         profileImage.setFitHeight(100);
 
@@ -120,6 +127,10 @@ public class AppMenu extends VBox {
 
         // Add menu components to menu
         this.getChildren().addAll(profileBox, dashboardLink, transactionsLink, settingsLink, logoutButton);
+    }
+
+    public static void setProfileImage(Image newProfileImage) {
+        profileImage.setImage(newProfileImage);
     }
 
     // Getters for menu components

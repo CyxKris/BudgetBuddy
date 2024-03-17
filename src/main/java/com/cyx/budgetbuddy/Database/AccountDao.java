@@ -49,8 +49,8 @@ public class AccountDao {
         return accountDao.queryBuilder().where().eq("userId", user).queryForFirst();
     }
 
-    public Account getAccount(UUID accountId) throws SQLException {
-        return accountDao.queryForId(accountId);
+    public void deleteAccount(Account account) throws SQLException {
+        accountDao.delete(account);
     }
 
 }

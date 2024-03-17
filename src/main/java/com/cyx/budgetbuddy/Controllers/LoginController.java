@@ -106,6 +106,7 @@ public class LoginController implements Initializable {
     private void onGuestLogin() throws Exception {
         // Get the guest user instance and show the main app scene
         User guestUser = userDao.getUserByUsername("Guest");
+        System.out.println("The file path: " + guestUser.getProfileImagePath());
         ViewFactory.showAppScene(guestUser);
     }
 

@@ -66,6 +66,16 @@ public class DashboardController implements Initializable {
 
     }
 
+    private void handleBalanceEdit() {
+        DialogFactory.showAccountDialog();
+        showAccountBalance();
+    }
+
+    private void handleBudgetEdit() {
+        DialogFactory.showDialogBudget();
+        showBudgetAmount();
+    }
+
     public void showAccountBalance() {
         try {
             // HANDLING THE ACCOUNT BALANCE AMOUNT AND EDITING ACTION
@@ -79,16 +89,6 @@ public class DashboardController implements Initializable {
         }
     }
 
-    private void handleBalanceEdit() {
-        DialogFactory.showAccountDialog();
-        showAccountBalance();
-    }
-
-    private void handleBudgetEdit() {
-        DialogFactory.showDialogBudget();
-        showBudgetAmount();
-    }
-
     public void showBudgetAmount() {
         try {
             // HANDLING THE BUDGET AMOUNT AND EDITING ACTION
@@ -96,7 +96,6 @@ public class DashboardController implements Initializable {
             Budget userBudget = budgetDao.getBudgetByUser(AppView.getUser());
 
             budgetAmount.setText(CurrencyFormatUtils.formatCurrency(userBudget.getBudgetAmount()));
-//            editBudget.setOnAction(event -> DialogFactory.showDialogBudget());
             editBudget.setOnAction(event -> handleBudgetEdit());
         } catch (SQLException e) {
             logger.severe("Error loading budget data");

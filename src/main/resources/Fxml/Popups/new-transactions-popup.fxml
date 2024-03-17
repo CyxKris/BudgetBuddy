@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<DialogPane fx:id="addTransactionPopup" prefHeight="350.0" prefWidth="290.0" styleClass="root-pane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cyx.budgetbuddy.Controllers.AddTransactionPopupController">
+<DialogPane prefHeight="350.0" prefWidth="290.0" styleClass="root-pane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cyx.budgetbuddy.Controllers.EditTransactionPopupController">
    <padding>
       <Insets left="16.0" right="16.0" top="16.0" />
    </padding>
@@ -48,7 +48,7 @@
       <URL value="@../../Css/popup.css" />
    </stylesheets>
    <header>
-      <Label styleClass="header" text="Add Transaction" />
+      <Label styleClass="header" text="Edit Transaction" />
    </header>
    <effect>
       <DropShadow />

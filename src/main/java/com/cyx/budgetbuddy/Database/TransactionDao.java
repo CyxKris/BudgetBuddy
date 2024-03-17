@@ -3,6 +3,7 @@ import com.cyx.budgetbuddy.Models.Account;
 import com.cyx.budgetbuddy.Models.Budget;
 import com.cyx.budgetbuddy.Models.Transaction;
 import com.cyx.budgetbuddy.Models.User;
+import com.cyx.budgetbuddy.Views.AppView;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.stmt.QueryBuilder;
@@ -41,18 +42,44 @@ public class TransactionDao {
 
     public void updateTransaction(User user, Double amount, Date transactionDate, String category, String description) throws SQLException {
 
-        Transaction transaction = getTransactionByUser(user);
-        transaction.setAmount(amount);
-        transaction.setTransactionDate(transactionDate);
-        transaction.setCategory(category);
-        transaction.setDescription(description);
-
-        transactionDao.update(transaction);
+//        Transaction transaction = getTransactionById();
+//        transaction.setAmount(amount);
+//        transaction.setTransactionDate(transactionDate);
+//        transaction.setCategory(category);
+//        transaction.setDescription(description);
+//
+//        transactionDao.update(transaction);
     }
 
     public void deleteTransaction(UUID transactionId) throws SQLException {
+        // Get the transaction
         Transaction transaction = transactionDao.queryForId(transactionId);
+
+        // If the transaction isn't null, update the user's budget and account balance and delete the transaction.
         if (transaction != null) {
+
+            // Update the budget
+            Budget userBudget = budgetDao.getBudgetByUser(AppView.getUser());
+            Account userAccount = accountDao.getAccountByUser(AppView.getUser());
+
+            if (transaction.getCategory().equals("Income")) {
+                // CORRECTING THE ACCOUNT BALANCE
+                userAccount.setBalance(userAccount.getBalance() - transaction.getAmount());
+                // Updating the user's account
+                accountDao.updateAccount(AppView.getUser(), userAccount.getBalance());
+            } else if (transaction.getCategory().equals("Expense")) {
+                // CORRECTING THE ACCOUNT BALANCE
+                userAccount.setBalance(userAccount.getBalance() + transaction.getAmount());
+                // CORRECTING THE AMOUNT USED IN THE BUDGET TABLE
+                userBudget.setAmountUsed(userBudget.getAmountUsed() - transaction.getAmount());
+
+                // Updating the user's account and budget in the database.
+                accountDao.updateAccount(AppView.getUser(), userAccount.getBalance());
+                budgetDao.updateBudgetAmountUsed(AppView.getUser(), userBudget.getAmountUsed());
+            } else {
+                logger.severe("Unable to update user account balance and budget");
+            }
+
             transactionDao.delete(transaction);
         }
     }
@@ -61,14 +88,15 @@ public class TransactionDao {
         return transactionDao.queryBuilder().where().eq("userId", user).queryForFirst();
     }
 
-//    public List<Transaction> getAllTransactions() throws SQLException {
-//        return transactionDao.queryForAll();
-//    }
+    public Transaction getTransactionById(UUID transactionId) throws SQLException {
+        return transactionDao.queryForId(transactionId);
+    }
+
+//    public Transaction getTransaction;
 
     public List<Transaction> getAllTransactions(User user) throws SQLException {
         QueryBuilder<Transaction, UUID> queryBuilder = transactionDao.queryBuilder();
         queryBuilder.where().eq("userId", user);
-        // Add any other conditions if needed
 
         return queryBuilder.query();
     }
@@ -83,5 +111,7 @@ public class TransactionDao {
         return queryBuilder.query(); // Execute the query
     }
 
-
+    public void deleteTransactions(List<Transaction> transactionList) throws SQLException {
+        transactionDao.delete(transactionList);
+    }
 }

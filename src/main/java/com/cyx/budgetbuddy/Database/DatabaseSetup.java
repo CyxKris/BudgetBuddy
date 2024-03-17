@@ -26,7 +26,6 @@ public class DatabaseSetup {
     /**
      * Creates tables if they do not already exist in the database.
      * Uses synchronization to ensure thread safety.
-     * @throws SQLException if an SQL exception occurs during table creation.
      */
     public static synchronized void createTablesIfNotExist() {
         // Synchronize access to ensure thread safety
@@ -39,6 +38,7 @@ public class DatabaseSetup {
 //                TableUtils.dropTable(connectionSource, Transaction.class, true);
 //                TableUtils.dropTable(connectionSource, Account.class, true);
 //                TableUtils.dropTable(connectionSource, Budget.class, true);
+//                TableUtils.dropTable(connectionSource, User.class, true);
 
                 // Create tables if they do not exist
                 TableUtils.createTableIfNotExists(connectionSource, User.class);
