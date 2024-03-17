@@ -52,3 +52,32 @@
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em;
 }
+
+/* STYLING THE SCROLL WHEEL */
+/*
+    To style these, we need to access them through the .virtual-flow .scroll-bar selector. The .track and .track-background selectors correspond to the space along which the scrollbar moves. We’ll set these to transparent, because we want to keep the same consistent, clean feel.
+ */
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+/*
+    The arrows on either side of the scrollbar are accessed through .increment-button and .decrement-button. As with any node, they can be customized using the -fx-shape attribute, which gives you complete control over their shape. For a clean look, we’ll make them transparent by setting their opacity to zero.
+ */
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 0;
+}
+
+/*
+    The scrollbar itself is referred to using the .thumb selector. Because we’re setting a gradient, and we want the look to be consistent, we’ll set the vertical bar’s gradient from top to bottom, and the horizontal bar’s gradient from left to right.
+ */
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color: #DAFF01;
+}
