@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.PieChart?>
@@ -22,15 +23,19 @@
    </padding>
    <HBox alignment="CENTER" layoutX="50.0" layoutY="24.0" prefHeight="200.0" prefWidth="900.0" spacing="10.0" AnchorPane.topAnchor="0.0">
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: #DAFF01; -fx-background-radius: 20;">
-         <Label styleClass="card-label" text="Total Balance">
+         <Label styleClass="card-text" text="Total Balance">
             <font>
                <Font name="Urbanist Bold" size="24.0" />
             </font>
          </Label>
-         <Label fx:id="accountBalance" text="₦60,000.00">
+         <Label fx:id="accountBalance" prefHeight="53.0" prefWidth="317.0" text="₦60,000.00">
             <font>
                <Font name="Urbanist Bold" size="36.0" />
             </font>
+            <styleClass>
+               <String fx:value="card-text" />
+               <String fx:value="card-amount-large" />
+            </styleClass>
          </Label>
          <Button fx:id="editBalance" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" style="-fx-background-radius: 20; -fx-background-color: black;" text="Edit" textFill="#fffefe">
             <VBox.margin>
@@ -42,19 +47,33 @@
          </Button>
       </VBox>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: white; -fx-background-radius: 20;">
-         <Label styleClass="card-label" text="Budget">
+         <Label styleClass="card-text" text="Budget">
             <font>
                <Font name="Urbanist Bold" size="24.0" />
             </font>
          </Label>
-         <Label fx:id="budgetAmount" text="₦00.00">
+         <Label fx:id="budgetAmount" prefHeight="53.0" prefWidth="325.0">
             <font>
                <Font name="Urbanist Bold" size="36.0" />
             </font>
+            <styleClass>
+               <String fx:value="card-text" />
+               <String fx:value="card-amount-large" />
+            </styleClass>
          </Label>
          <HBox alignment="CENTER" prefHeight="22.0" prefWidth="400.0" spacing="8.0">
-            <Label text="Amount Used"/>
-            <Label fx:id="amountUsed" text="₦0.0"/>
+            <Label text="Amount Used">
+               <styleClass>
+                  <String fx:value="card-text" />
+                  <String fx:value="card-label-small" />
+               </styleClass>
+            </Label>
+            <Label fx:id="amountUsed" text="₦0.0">
+               <styleClass>
+                  <String fx:value="card-text" />
+                  <String fx:value="card-amount-small" />
+               </styleClass>
+            </Label>
          </HBox>
          <Button fx:id="editBudget" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-radius: 20; -fx-background-color: black;" text="Edit" textFill="WHITE">
             <VBox.margin>
@@ -75,7 +94,7 @@
          </Label>
          <TableView fx:id="recentTransactions" prefHeight="331.0" prefWidth="642.0" stylesheets="@../../Css/tables.css" />
       </VBox>
-      <VBox prefHeight="200.0" prefWidth="322.0" spacing="4.0">
+      <VBox spacing="4.0">
          <Label styleClass="section-title" text="Spending Summary" textFill="#989696">
             <font>
                <Font name="Urbanist Bold" size="24.0" />

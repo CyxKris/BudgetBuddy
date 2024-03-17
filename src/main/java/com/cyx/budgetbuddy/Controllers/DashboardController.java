@@ -22,10 +22,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.logging.Logger;
 
 public class DashboardController implements Initializable {
@@ -52,6 +49,12 @@ public class DashboardController implements Initializable {
     private PieChart spendingSummary;
 
     TransactionDao transactionDao = new TransactionDao();
+
+    private ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+
+    private PieChart.Data incomeData;
+    private PieChart.Data expenseData;
+
 
 
     // Logger instance for logging errors
@@ -147,24 +150,26 @@ public class DashboardController implements Initializable {
         double totalIncome = transactionDao.getTotalIncome(AppView.getUser());
         double totalExpenses = transactionDao.getTotalExpenses(AppView.getUser());
 
-        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
-                new PieChart.Data("Income", totalIncome),
-                new PieChart.Data("Expense", totalExpenses)
-        );
+//        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+//                new PieChart.Data("Income", totalIncome),
+//                new PieChart.Data("Expense", totalExpenses)
+//        );
+        pieChartData.clear();
+        incomeData = new PieChart.Data("Income", totalIncome);
+        expenseData = new PieChart.Data("Expense", totalExpenses);
 
-//        spendingSummary.setData(pieChartData);
+        pieChartData.addAll(incomeData, expenseData);
 
-        spendingSummary = new PieChart(pieChartData);
+        spendingSummary.setData(pieChartData);
 
+        // Set colors for the data slices
+        incomeData.getNode().setStyle("-fx-pie-color: #DAFF01;");
+        expenseData.getNode().setStyle("-fx-pie-color: indianred;");
 
-//
-//        PieChart.Data incomeData = pieChartData.getFirst();
-//        PieChart.Data expenseData = pieChartData.getLast();
-//        spendingSummary.getData().addAll(incomeData, expenseData);
+        // Listen for changes in the TransactionDao properties
+        transactionDao.totalIncomeProperty().addListener((observable, oldValue, newValue) -> updateIncome(newValue.doubleValue()));
+        transactionDao.totalExpensesProperty().addListener((observable, oldValue, newValue) -> updateExpense(newValue.doubleValue()));
 
-        // Bind data to transactionDao properties for dynamic updating
-//        incomeData.pieValueProperty().bind(transactionDao.totalIncomeProperty());
-//        expenseData.pieValueProperty().bind(transactionDao.totalExpensesProperty());
 
         spendingSummary.setTitle("Spending summary for " + AppView.getUser().getUsername());
         spendingSummary.setLabelsVisible(true);
@@ -172,6 +177,14 @@ public class DashboardController implements Initializable {
         spendingSummary.setLabelLineLength(50);
         //Setting the start angle of the pie chart
         spendingSummary.setStartAngle(180);
+    }
+
+    private void updateIncome(double newValue) {
+        incomeData.setPieValue(newValue);
+    }
+
+    private void updateExpense(double newValue) {
+        expenseData.setPieValue(newValue);
     }
 
 }

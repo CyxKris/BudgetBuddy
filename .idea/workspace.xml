@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;feat: Styled the scroll wheel for the table view">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Css/dashboard-view.css" afterDir="false" />
+    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;feat: Added visual representation for user's amount used">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/budgetbuddy.db" beforeDir="false" afterPath="$PROJECT_DIR$/budgetbuddy.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/AddTransactionPopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/AddTransactionPopupController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/TransactionsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/TransactionsViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/BudgetDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/BudgetDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/TransactionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/TransactionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/view.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/view.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/BudgetTrackerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/BudgetTrackerApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/dashboard-view.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/dashboard-view.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/popup.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/popup.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Views/dashboard-new.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/dashboard-new.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -220,7 +217,7 @@
       <workItem from="1710412392495" duration="12415000" />
       <workItem from="1710609272307" duration="5873000" />
       <workItem from="1710676625363" duration="7888000" />
-      <workItem from="1710691616430" duration="4025000" />
+      <workItem from="1710691616430" duration="9855000" />
     </task>
     <task id="LOCAL-00001" summary="First commit.">
       <option name="closed" value="true" />
@@ -430,7 +427,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710679770049</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="&#10;feat: Added visual representation for user's amount used">
+      <option name="closed" value="true" />
+      <created>1710697345607</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1710697345607</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -476,7 +481,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="&#10;Added README file." />
     <MESSAGE value="&#10;Removed unnecessary print statement in ViewFactory.java" />
     <MESSAGE value="&#10;chore: Updated catch blocks to use the java.util.logging package." />
     <MESSAGE value="&#10;chore: Removed the &lt;children&gt; wrapper tag in the dashboard-view.fxml file." />
@@ -501,6 +505,7 @@
     <MESSAGE value="&#10;feat: Began work on delete and edit transaction feature" />
     <MESSAGE value="&#10;feat: Finished the change user profile photo feature" />
     <MESSAGE value="&#10;feat: Styled the scroll wheel for the table view" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;feat: Styled the scroll wheel for the table view" />
+    <MESSAGE value="&#10;feat: Added visual representation for user's amount used" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;feat: Added visual representation for user's amount used" />
   </component>
 </project>
