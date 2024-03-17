@@ -110,11 +110,12 @@ public class AddTransactionPopupController implements Initializable {
         Budget budget = budgetDao.getBudgetByUser(user);
         if (budget != null && category.equals("Expense")) {
             budget.setAmountUsed(budget.getAmountUsed() + Double.parseDouble(transactionAmount.getText()));
+            budgetDao.updateBudgetAmountUsed(user, budget.getAmountUsed());
             budgetDao.updateBudget(user, budget.getStartDate(), budget.getEndDate(), budget.getBudgetAmount());
         }
 
         // creating the transaction
-        transactionDao.createTransaction(AppView.getUser(), Double.parseDouble(transactionAmount.getText()), transactionDate, category, descriptionField.getText());
+        transactionDao.createTransactionAndUpdateChart(AppView.getUser(), Double.parseDouble(transactionAmount.getText()), transactionDate, category, descriptionField.getText());
 
         closeDialog(event);
     }

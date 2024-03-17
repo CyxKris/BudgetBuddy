@@ -7,6 +7,8 @@ import com.cyx.budgetbuddy.Views.AppView;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.stmt.QueryBuilder;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -16,6 +18,9 @@ import java.util.logging.Logger;
 
 public class TransactionDao {
     private final Dao<Transaction, UUID> transactionDao;
+
+    private final DoubleProperty totalIncome = new SimpleDoubleProperty();
+    private final DoubleProperty totalExpenses = new SimpleDoubleProperty();
 
     BudgetDao budgetDao = new BudgetDao();
     AccountDao accountDao = new AccountDao();
@@ -71,7 +76,7 @@ public class TransactionDao {
                 // CORRECTING THE ACCOUNT BALANCE
                 userAccount.setBalance(userAccount.getBalance() + transaction.getAmount());
                 // CORRECTING THE AMOUNT USED IN THE BUDGET TABLE
-                userBudget.setAmountUsed(userBudget.getAmountUsed() - transaction.getAmount());
+                userBudget.setAmountUsed(userBudget.getAmountUsed() + transaction.getAmount());
 
                 // Updating the user's account and budget in the database.
                 accountDao.updateAccount(AppView.getUser(), userAccount.getBalance());
@@ -114,4 +119,50 @@ public class TransactionDao {
     public void deleteTransactions(List<Transaction> transactionList) throws SQLException {
         transactionDao.delete(transactionList);
     }
+
+    public void createTransactionAndUpdateChart(User user, Double amount, Date transactionDate, String category, String description) throws SQLException {
+        createTransaction(user, amount, transactionDate, category, description);
+        updateChart();
+    }
+
+    public void deleteTransactionAndUpdateChart(UUID transactionId) throws SQLException {
+        deleteTransaction(transactionId);
+        updateChart();
+    }
+
+    private void updateChart() throws SQLException {
+        User user = AppView.getUser();
+        totalIncome.set(getTotalIncome(user));
+        totalExpenses.set(getTotalExpenses(user));
+    }
+
+
+    public DoubleProperty totalIncomeProperty() {
+        return totalIncome;
+    }
+
+    public DoubleProperty totalExpensesProperty() {
+        return totalExpenses;
+    }
+
+    public double getTotalIncome(User user) throws SQLException {
+        List<Transaction> incomeTransactions = transactionDao.queryBuilder()
+                .where()
+                .eq("userId", user)
+                .and()
+                .eq("category", "Income")
+                .query();
+        return incomeTransactions.stream().mapToDouble(Transaction::getAmount).sum();
+    }
+
+    public double getTotalExpenses(User user) throws SQLException {
+        List<Transaction> expenseTransactions = transactionDao.queryBuilder()
+                .where()
+                .eq("userId", user)
+                .and()
+                .eq("category", "Expense")
+                .query();
+        return expenseTransactions.stream().mapToDouble(Transaction::getAmount).sum();
+    }
+
 }

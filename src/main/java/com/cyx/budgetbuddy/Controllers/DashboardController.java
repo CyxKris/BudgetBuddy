@@ -9,8 +9,11 @@ import com.cyx.budgetbuddy.Models.Transaction;
 import com.cyx.budgetbuddy.Utils.CurrencyFormatUtils;
 import com.cyx.budgetbuddy.Views.AppView;
 import com.cyx.budgetbuddy.Views.DialogFactory;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -34,6 +37,9 @@ public class DashboardController implements Initializable {
     private Label budgetAmount;
 
     @FXML
+    private Label amountUsed;
+
+    @FXML
     private Button editBalance;
 
     @FXML
@@ -41,6 +47,9 @@ public class DashboardController implements Initializable {
 
     @FXML
     private TableView<Transaction> recentTransactions;
+
+    @FXML
+    private PieChart spendingSummary;
 
     TransactionDao transactionDao = new TransactionDao();
 
@@ -60,6 +69,8 @@ public class DashboardController implements Initializable {
         try {
             // POPULATING RECENT TRANSACTIONS TABLE
             populateRecentTransactionsTable();
+            initializePieChart();
+
         } catch (SQLException e) {
             logger.severe("Error while populating recent transactions table: " + e);
         }
@@ -96,6 +107,7 @@ public class DashboardController implements Initializable {
             Budget userBudget = budgetDao.getBudgetByUser(AppView.getUser());
 
             budgetAmount.setText(CurrencyFormatUtils.formatCurrency(userBudget.getBudgetAmount()));
+            amountUsed.setText(CurrencyFormatUtils.formatCurrency(userBudget.getAmountUsed()));
             editBudget.setOnAction(event -> handleBudgetEdit());
         } catch (SQLException e) {
             logger.severe("Error loading budget data");
@@ -125,6 +137,41 @@ public class DashboardController implements Initializable {
 
         // populating the rows
         recentTransactions.getItems().addAll(transactionDao.getRecentTransactions(AppView.getUser(), 7));
+    }
+
+    private void initializePieChart() throws SQLException {
+
+        spendingSummary.getData().clear();
+
+        // Get the total income and expenses from the TransactionDao
+        double totalIncome = transactionDao.getTotalIncome(AppView.getUser());
+        double totalExpenses = transactionDao.getTotalExpenses(AppView.getUser());
+
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+                new PieChart.Data("Income", totalIncome),
+                new PieChart.Data("Expense", totalExpenses)
+        );
+
+//        spendingSummary.setData(pieChartData);
+
+        spendingSummary = new PieChart(pieChartData);
+
+
+//
+//        PieChart.Data incomeData = pieChartData.getFirst();
+//        PieChart.Data expenseData = pieChartData.getLast();
+//        spendingSummary.getData().addAll(incomeData, expenseData);
+
+        // Bind data to transactionDao properties for dynamic updating
+//        incomeData.pieValueProperty().bind(transactionDao.totalIncomeProperty());
+//        expenseData.pieValueProperty().bind(transactionDao.totalExpensesProperty());
+
+        spendingSummary.setTitle("Spending summary for " + AppView.getUser().getUsername());
+        spendingSummary.setLabelsVisible(true);
+        //Setting the length of the label line
+        spendingSummary.setLabelLineLength(50);
+        //Setting the start angle of the pie chart
+        spendingSummary.setStartAngle(180);
     }
 
 }

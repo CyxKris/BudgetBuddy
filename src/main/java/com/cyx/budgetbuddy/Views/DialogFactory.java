@@ -56,7 +56,6 @@ public class DialogFactory {
     public static void showEditTransactionDialog(Transaction transaction) {
         try {
             FXMLLoader loader = new FXMLLoader(DialogFactory.class.getResource("/Fxml/Popups/new-transactions-popup.fxml"));
-            System.out.println("Edit Transactions Popup: " + loader);
 
             setAndShowDialog(loader);
         } catch (IOException e) {

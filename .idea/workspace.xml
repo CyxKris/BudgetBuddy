@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;feat: Finished the change user profile photo feature">
+    <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;feat: Styled the scroll wheel for the table view">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Css/dashboard-view.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/budgetbuddy.db" beforeDir="false" afterPath="$PROJECT_DIR$/budgetbuddy.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/tables.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/tables.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/AddTransactionPopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/AddTransactionPopupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/TransactionsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/TransactionsViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/BudgetDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/BudgetDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/TransactionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/TransactionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Css/view.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Css/view.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Fxml/Views/dashboard-new.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Fxml/Views/dashboard-new.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +24,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -212,7 +219,8 @@
       <workItem from="1710365529528" duration="594000" />
       <workItem from="1710412392495" duration="12415000" />
       <workItem from="1710609272307" duration="5873000" />
-      <workItem from="1710676625363" duration="1690000" />
+      <workItem from="1710676625363" duration="7888000" />
+      <workItem from="1710691616430" duration="4025000" />
     </task>
     <task id="LOCAL-00001" summary="First commit.">
       <option name="closed" value="true" />
@@ -414,7 +422,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710677226107</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="&#10;feat: Styled the scroll wheel for the table view">
+      <option name="closed" value="true" />
+      <created>1710679770048</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1710679770049</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,7 +476,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="First commit." />
     <MESSAGE value="&#10;Added README file." />
     <MESSAGE value="&#10;Removed unnecessary print statement in ViewFactory.java" />
     <MESSAGE value="&#10;chore: Updated catch blocks to use the java.util.logging package." />
@@ -485,6 +500,7 @@
     <MESSAGE value="&#10;fix: Fixed user-specific transaction tables" />
     <MESSAGE value="&#10;feat: Began work on delete and edit transaction feature" />
     <MESSAGE value="&#10;feat: Finished the change user profile photo feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;feat: Finished the change user profile photo feature" />
+    <MESSAGE value="&#10;feat: Styled the scroll wheel for the table view" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;feat: Styled the scroll wheel for the table view" />
   </component>
 </project>

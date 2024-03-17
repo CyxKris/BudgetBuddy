@@ -119,7 +119,7 @@ public class TransactionsViewController implements Initializable {
             Transaction selectedTransaction = transactionsTable.getSelectionModel().getSelectedItem();
             if (selectedTransaction != null) {
                 try {
-                    transactionDao.deleteTransaction(selectedTransaction.getTransactionId());
+                    transactionDao.deleteTransactionAndUpdateChart(selectedTransaction.getTransactionId());
                 } catch (SQLException e) {
                     logger.severe("Error while deleting transaction: " + e);
                 }

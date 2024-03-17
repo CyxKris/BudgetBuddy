@@ -50,10 +50,15 @@ public class BudgetDao {
     }
 
     public void updateBudgetAmountUsed (User user, Double amountUsed) throws SQLException {
-        Budget budget = getBudgetByUser(user);
-        budget.setAmountUsed(amountUsed);
+        if (hasBudget(user)) {
+            Budget budget = getBudgetByUser(user);
+            budget.setAmountUsed(amountUsed);
 
-        budgetDao.update(budget);
+            budgetDao.update(budget);
+        } else {
+            logger.severe("Unable to update the user's amount used in budget table.");
+        }
+
     }
 
     public void deleteBudget(Budget budget) throws SQLException {

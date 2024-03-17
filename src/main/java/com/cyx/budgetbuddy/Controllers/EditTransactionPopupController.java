@@ -116,6 +116,7 @@ public class EditTransactionPopupController implements Initializable {
         Budget budget = budgetDao.getBudgetByUser(user);
         if (budget != null && category.equals("Expense")) {
             budget.setAmountUsed(budget.getAmountUsed() + Double.parseDouble(transactionAmount.getText()));
+            budgetDao.updateBudgetAmountUsed(user, budget.getAmountUsed());
             budgetDao.updateBudget(user, budget.getStartDate(), budget.getEndDate(), budget.getBudgetAmount());
         }
 

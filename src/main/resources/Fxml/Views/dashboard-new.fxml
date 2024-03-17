@@ -15,13 +15,14 @@
    <stylesheets>
       <URL value="@../../Css/app.css" />
       <URL value="@../../Css/view.css" />
+      <URL value="@../../Css/dashboard-view.css" />
    </stylesheets>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
    </padding>
    <HBox alignment="CENTER" layoutX="50.0" layoutY="24.0" prefHeight="200.0" prefWidth="900.0" spacing="10.0" AnchorPane.topAnchor="0.0">
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: #DAFF01; -fx-background-radius: 20;">
-         <Label text="Total Balance">
+         <Label styleClass="card-label" text="Total Balance">
             <font>
                <Font name="Urbanist Bold" size="24.0" />
             </font>
@@ -41,7 +42,7 @@
          </Button>
       </VBox>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: white; -fx-background-radius: 20;">
-         <Label text="Budget">
+         <Label styleClass="card-label" text="Budget">
             <font>
                <Font name="Urbanist Bold" size="24.0" />
             </font>
@@ -51,6 +52,10 @@
                <Font name="Urbanist Bold" size="36.0" />
             </font>
          </Label>
+         <HBox alignment="CENTER" prefHeight="22.0" prefWidth="400.0" spacing="8.0">
+            <Label text="Amount Used"/>
+            <Label fx:id="amountUsed" text="₦0.0"/>
+         </HBox>
          <Button fx:id="editBudget" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-radius: 20; -fx-background-color: black;" text="Edit" textFill="WHITE">
             <VBox.margin>
                <Insets top="20.0" />
@@ -63,20 +68,20 @@
    </HBox>
    <HBox layoutX="20.0" layoutY="337.0" prefHeight="360.0" prefWidth="960.0" spacing="16.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
       <VBox prefHeight="200.0" prefWidth="642.0">
-         <Label text="Recent Transactions" textFill="#989696">
+         <Label styleClass="section-title" text="Recent Transactions" textFill="#989696">
             <font>
                <Font name="Urbanist Bold" size="24.0" />
             </font>
          </Label>
          <TableView fx:id="recentTransactions" prefHeight="331.0" prefWidth="642.0" stylesheets="@../../Css/tables.css" />
       </VBox>
-      <VBox prefHeight="200.0" prefWidth="322.0">
-         <Label text="Spending Summary" textFill="#989696">
+      <VBox prefHeight="200.0" prefWidth="322.0" spacing="4.0">
+         <Label styleClass="section-title" text="Spending Summary" textFill="#989696">
             <font>
                <Font name="Urbanist Bold" size="24.0" />
             </font>
          </Label>
-         <PieChart />
+         <PieChart fx:id="spendingSummary" prefHeight="330.0" prefWidth="322.0" />
       </VBox>
    </HBox>
 </AnchorPane>
