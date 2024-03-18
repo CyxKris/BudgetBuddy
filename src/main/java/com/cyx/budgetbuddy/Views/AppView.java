@@ -10,6 +10,7 @@ import javafx.scene.SubScene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.BorderPane;
 
+import java.sql.SQLException;
 import java.util.Date;
 
 /**
@@ -83,6 +84,11 @@ public class AppView extends BorderPane {
      */
     public static User getUser() {
         return user;
+    }
+
+    public static void setUser(String username) throws SQLException {
+        UserDao userDao = new UserDao();
+        user = userDao.getUserByUsername(username);
     }
 
     /**

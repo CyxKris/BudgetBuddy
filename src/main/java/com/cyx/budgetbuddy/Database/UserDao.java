@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  */
 public class UserDao {
     private static final Logger logger = Logger.getLogger(UserDao.class.getName());
-    private Dao<User, UUID> userDao; // DAO object for User table operations
+    private final Dao<User, UUID> userDao; // DAO object for User table operations
 
     /**
      * Constructs a new UserDao instance and initializes the userDao DAO object.
@@ -98,6 +98,13 @@ public class UserDao {
 
     public void updateUserProfileImage(User user, String filePath) throws SQLException {
         user.setProfileImagePath(filePath);
+        userDao.update(user);
+    }
+
+    public void updateUserDetails(User user, String username, String password) throws SQLException {
+        user.setUsername(username);
+        user.setPassword(password);
+
         userDao.update(user);
     }
 

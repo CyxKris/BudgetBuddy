@@ -19,7 +19,7 @@ import java.util.Objects;
 public class AppMenu extends VBox {
 
     private static ImageView profileImage;
-    private String username;
+    private static String username;
     private final Hyperlink dashboardLink;
     private final Hyperlink transactionsLink;
     private final Hyperlink settingsLink;
@@ -27,11 +27,11 @@ public class AppMenu extends VBox {
 
     /**
      * Constructs the application menu with navigation links and logout button.
-     * @param username The username of the currently logged-in user.
+     * @param user_name The username of the currently logged-in user.
      */
-    public AppMenu(String username) {
+    public AppMenu(String user_name) {
         super();
-        this.username = username;
+        username = user_name;
         dashboardLink = new Hyperlink("Dashboard");
         transactionsLink = new Hyperlink("Transactions");
         settingsLink = new Hyperlink("Settings");
@@ -131,6 +131,10 @@ public class AppMenu extends VBox {
 
     public static void setProfileImage(Image newProfileImage) {
         profileImage.setImage(newProfileImage);
+    }
+
+    public static void setUsername(String newUsername) {
+        username = newUsername;
     }
 
     // Getters for menu components

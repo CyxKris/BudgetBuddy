@@ -1,6 +1,7 @@
 package com.cyx.budgetbuddy;
 
 import javafx.application.Application;
+import javafx.application.HostServices;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,6 +16,8 @@ import java.util.Objects;
  */
 public class App extends Application {
 
+    private static HostServices hostServices;
+
     /**
      * The entry point of the JavaFX application.
      * @param stage The primary stage to display the application.
@@ -22,6 +25,9 @@ public class App extends Application {
      */
     @Override
     public void start(Stage stage) throws Exception {
+        // Get the HostServices instance from the Parameters
+        hostServices = getHostServices();
+
         // Set a system property to configure the rendering of text on the screen
         // Ensures that all text appears properly on the screen
         System.setProperty("prism.lcdtext", "false");
@@ -42,5 +48,9 @@ public class App extends Application {
         stage.setScene(scene);
         // Display the stage with the splash screen
         stage.show();
+    }
+
+    public static HostServices getAppHostServices() {
+        return hostServices;
     }
 }

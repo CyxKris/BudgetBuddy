@@ -1,10 +1,13 @@
 package com.cyx.budgetbuddy.Controllers;
 
+import com.cyx.budgetbuddy.App;
 import com.cyx.budgetbuddy.Database.UserDao;
 import com.cyx.budgetbuddy.Models.User;
 import com.cyx.budgetbuddy.Views.AppMenu;
 import com.cyx.budgetbuddy.Views.AppView;
+import com.cyx.budgetbuddy.Views.DialogFactory;
 import com.cyx.budgetbuddy.Views.ViewFactory;
+import javafx.application.HostServices;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -15,6 +18,8 @@ import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
@@ -48,7 +53,22 @@ public class SettingsViewController implements Initializable {
                 throw new RuntimeException(e);
             }
         });
+
+        editUserButton.setOnMouseClicked(event -> {
+            try {
+                editUser();
+            } catch (SQLException e) {
+                logger.severe("Error in editing user details..." + e);
+            }
+        });
+
         deleteUserButton.setOnMouseClicked(event -> showDeleteConfirmationDialog());
+
+        sendReportButton.setOnMouseClicked(event -> mailToDeveloper());
+    }
+
+    private void editUser() throws SQLException {
+        DialogFactory.showEditUserDetailsDialog();
     }
 
     private void openFileChooser() throws SQLException {
@@ -100,5 +120,23 @@ public class SettingsViewController implements Initializable {
                 }
             }
         });
+    }
+
+    private void mailToDeveloper() {
+        String developerEmail = "cyxkris6@gmail.com";
+        String subject = "Report on BudgetBuddy";
+
+        // Encode the subject string
+        String encodedSubject = URLEncoder.encode(subject, StandardCharsets.UTF_8);
+
+        // Construct the mailto URI
+        String mailtoUri = "mailto:" + developerEmail + "?subject=" + encodedSubject;
+
+        // Get the host services from the application parameters
+        HostServices hostServices = App.getAppHostServices();
+
+        // Open the default email client with the new email draft
+        hostServices.showDocument(mailtoUri);
+
     }
 }

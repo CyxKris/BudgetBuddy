@@ -16,7 +16,8 @@ DialogPane Label.header {
 
 /* STYLING THE INPUT FIELDS */
 DialogPane TextField,
-DialogPane ChoiceBox {
+DialogPane ChoiceBox,
+DialogPane PasswordField {
     -fx-background-color: #FFFFFF, #1B1B1B;
     -fx-text-fill: #FFFFFF;
     -fx-background-radius: 10;

@@ -76,6 +76,16 @@ public class DialogFactory {
         }
     }
 
+    public static void showEditUserDetailsDialog() {
+        try {
+            FXMLLoader loader = new FXMLLoader(DialogFactory.class.getResource("/Fxml/Popups/user-popup.fxml"));
+
+            setAndShowDialog(loader);
+        } catch (IOException e) {
+            logger.severe("Error showing the edit user dialog: " + e);
+        }
+    }
+
     private static void setAndShowDialog(FXMLLoader loader) throws IOException {
         Parent root = loader.load();
 
@@ -93,4 +103,5 @@ public class DialogFactory {
     public static Transaction getSelectedTransaction() {
         return selectedTransaction;
     }
+
 }

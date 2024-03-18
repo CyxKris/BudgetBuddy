@@ -1,14 +1,14 @@
 package com.cyx.budgetbuddy.Controllers;
 
-import com.cyx.budgetbuddy.Database.AccountDao;
-import com.cyx.budgetbuddy.Models.Account;
-import com.cyx.budgetbuddy.Utils.NumericTextFieldUtil;
+import com.cyx.budgetbuddy.Database.UserDao;
+import com.cyx.budgetbuddy.Views.AppMenu;
 import com.cyx.budgetbuddy.Views.AppView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -17,38 +17,29 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
-public class AccountPopupController implements Initializable {
+public class UserPopupController implements Initializable {
 
     @FXML
-    private TextField accountBalance;
+    private TextField usernameField;
 
     @FXML
-    private Button cancelButton;
+    private PasswordField passwordField;
+
+    @FXML
+    private PasswordField confirmPasswordField;
 
     @FXML
     private Button saveButton;
 
-    AccountDao accountDao = new AccountDao();
+    @FXML
+    private Button cancelButton;
 
-    private static final Logger logger = Logger.getLogger(AccountPopupController.class.getName());
-
-    public AccountPopupController() throws SQLException {
-    }
+    private static final Logger logger = Logger.getLogger(UserPopupController.class.getName());
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Adding the utilities to ensure only numerical values are accepted in the accountBalance text field
-        NumericTextFieldUtil.addNumericValidation(accountBalance);
 
-        Account account = null;
-        try {
-            account = accountDao.getAccountByUser(AppView.getUser());
-        } catch (SQLException e) {
-            logger.severe("Error getting user's account: " + e);
-        }
-
-        assert account != null;
-        accountBalance.setText(String.valueOf(account.getBalance()));
+        usernameField.setText(AppView.getUser().getUsername());
 
         // Closes the dialog when the cancelButton is clicked
         cancelButton.setOnAction(this::closeDialog);
@@ -65,7 +56,16 @@ public class AccountPopupController implements Initializable {
 
     private void saveData(ActionEvent event) throws SQLException {
 
-        accountDao.updateAccount(AppView.getUser(), Double.parseDouble(accountBalance.getText()));
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+        String confirmPassword = confirmPasswordField.getText();
+
+        if (password.equals(confirmPassword)) {
+            UserDao userDao = new UserDao();
+            userDao.updateUserDetails(AppView.getUser(), username, password);
+            AppView.setUser(username);
+            AppMenu.setUsername(username);
+        }
 
         closeDialog(event);
     }
@@ -74,5 +74,4 @@ public class AccountPopupController implements Initializable {
         Stage dialog = (Stage) ((Node)event.getSource()).getScene().getWindow();
         dialog.close();
     }
-
 }
