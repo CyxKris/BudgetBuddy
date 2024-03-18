@@ -77,7 +77,7 @@ public class TransactionDao {
                 // CORRECTING THE ACCOUNT BALANCE
                 userAccount.setBalance(userAccount.getBalance() + transaction.getAmount());
                 // CORRECTING THE AMOUNT USED IN THE BUDGET TABLE
-                userBudget.setAmountUsed(userBudget.getAmountUsed() + transaction.getAmount());
+                userBudget.setAmountUsed(userBudget.getAmountUsed() - transaction.getAmount());
 
                 // Updating the user's account and budget in the database.
                 accountDao.updateAccount(AppView.getUser(), userAccount.getBalance());
