@@ -86,6 +86,12 @@ public class AppView extends BorderPane {
         return user;
     }
 
+    /**
+     * Sets the specified user.
+     *
+     * @param username The username of the user to set
+     * @throws SQLException If an SQL exception occurs
+     */
     public static void setUser(String username) throws SQLException {
         UserDao userDao = new UserDao();
         user = userDao.getUserByUsername(username);

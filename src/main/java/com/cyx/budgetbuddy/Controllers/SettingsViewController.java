@@ -1,7 +1,9 @@
 package com.cyx.budgetbuddy.Controllers;
 
 import com.cyx.budgetbuddy.App;
+import com.cyx.budgetbuddy.Database.TransactionDao;
 import com.cyx.budgetbuddy.Database.UserDao;
+import com.cyx.budgetbuddy.Models.Transaction;
 import com.cyx.budgetbuddy.Models.User;
 import com.cyx.budgetbuddy.Views.AppMenu;
 import com.cyx.budgetbuddy.Views.AppView;
@@ -17,10 +19,13 @@ import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
@@ -54,6 +59,14 @@ public class SettingsViewController implements Initializable {
             }
         });
 
+        exportDataButton.setOnMouseClicked(event -> {
+            try {
+                exportUserData();
+            } catch (SQLException | IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
         editUserButton.setOnMouseClicked(event -> {
             try {
                 editUser();
@@ -69,6 +82,43 @@ public class SettingsViewController implements Initializable {
 
     private void editUser() throws SQLException {
         DialogFactory.showEditUserDetailsDialog();
+    }
+
+    private void exportUserData() throws SQLException, IOException {
+        TransactionDao transactionDao = new TransactionDao();
+
+        // Get all transactions from the database
+        List<Transaction> transactions = transactionDao.getAllTransactions(AppView.getUser()); // Assuming TransactionDao.getAllTransactions() returns a list of all transactions
+
+        // Show file chooser dialog to choose file location and name
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save Transaction Data");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv"));
+        File file = fileChooser.showSaveDialog(null);
+
+        if (file != null) {
+            // Write transactions to the CSV file
+            try (FileWriter writer = new FileWriter(file)) {
+                // Write CSV header
+                writer.append("Transaction ID,User Name,Account Balance,Amount,Transaction Date,Category,Description\n");
+
+                // Write each transaction's data
+                for (Transaction transaction : transactions) {
+                    writer.append(String.join(",",
+                            transaction.getTransactionId().toString(),
+                            transaction.getUser().getUsername(),
+                            String.valueOf(transaction.getAmount()),
+                            String.valueOf(transaction.getAmount()),
+                            transaction.getTransactionDate().toString(),
+                            transaction.getCategory(),
+                            transaction.getDescription()));
+                    writer.append("\n");
+                }
+
+                // Success message
+                logger.info("Transaction data exported successfully to: " + file.getAbsolutePath());
+            }
+        }
     }
 
     private void openFileChooser() throws SQLException {

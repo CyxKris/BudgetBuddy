@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public class ViewFactory {
     // The stage of the application
     // Obtain the main stage instance
-    private static Stage stage = MainStage.getInstance();
+    private static final Stage stage = MainStage.getInstance();
 
     // Logger for handling logging messages
     private static final Logger logger = Logger.getLogger(ViewFactory.class.getName());
@@ -149,6 +149,10 @@ public class ViewFactory {
         return root;
     }
 
+    /**
+     * Returns the current stage instance of the application
+     * @return the instance of the mainStage
+     */
     public static Stage getStage() {
         return stage;
     }

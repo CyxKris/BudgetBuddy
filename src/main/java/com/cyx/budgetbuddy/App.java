@@ -50,6 +50,10 @@ public class App extends Application {
         stage.show();
     }
 
+    /**
+     * Returns the HostServices instance associated with the application.
+     * @return The HostServices instance.
+     */
     public static HostServices getAppHostServices() {
         return hostServices;
     }
