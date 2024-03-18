@@ -12,15 +12,12 @@
     <list default="true" id="debd84bf-37ac-490e-89fc-37131e0adead" name="Changes" comment="&#10;feat: Finished the send report feature&#10;&#10;Working on the edit user data feature.">
       <change afterPath="$PROJECT_DIR$/.idea/artifacts/BudgetBuddy_jar.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/warp-packer.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/budgetbuddy.db" beforeDir="false" afterPath="$PROJECT_DIR$/budgetbuddy.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/SettingsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Controllers/SettingsViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/DatabaseSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/DatabaseSetup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/TransactionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Database/TransactionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/AppView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/AppView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/DialogFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/DialogFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyx/budgetbuddy/Views/ViewFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,13 +77,15 @@
     "Application.CustomTitleBarDemo.executor": "Run",
     "Application.Test.executor": "Run",
     "Application.TestWithClass.executor": "Run",
+    "Maven.BudgetBuddy [clean].executor": "Run",
+    "Maven.BudgetBuddy [package].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "dialog",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/cyxkr/Videos/Programming & Design/Java/New/BudgetBuddy",
+    "last_opened_file_path": "C:/Users/cyxkr/Downloads/BudgetBuddy/tools",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -95,13 +94,14 @@
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.345977",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "build.tools",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\cyxkr\Downloads\BudgetBuddy\tools" />
       <recent name="C:\Users\cyxkr\Documents\Programming\Java\JavaFx\BudgetBuddy\src\main\resources\Fxml\Popups" />
       <recent name="C:\Users\cyxkr\Documents\Programming\Java\JavaFx\BudgetBuddy\src\main\resources\Images" />
       <recent name="C:\Users\cyxkr\Documents\Programming\Java\JavaFx\BudgetBuddy\src\main\resources\Fxml\Views" />
@@ -227,7 +227,8 @@
       <workItem from="1710609272307" duration="5873000" />
       <workItem from="1710676625363" duration="7888000" />
       <workItem from="1710691616430" duration="20277000" />
-      <workItem from="1710752992228" duration="9084000" />
+      <workItem from="1710752992228" duration="4529000" />
+      <workItem from="1710758472656" duration="4865000" />
     </task>
     <task id="LOCAL-00001" summary="First commit.">
       <option name="closed" value="true" />
